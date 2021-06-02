@@ -45,6 +45,19 @@ namespace ARM_Engineers
 
         private void FullScreenButton_Click(object sender, RoutedEventArgs e)
         {
+            if(WindowState==WindowState.Normal)
+            {
+                FullScreenButton.Content = "В окне";
+                
+                WindowState = WindowState.Maximized;
+            }
+            else
+            {
+                FullScreenButton.Content = "На весь экран";
+                WindowState = WindowState.Normal;
+
+            }
+            
 
         }
     }

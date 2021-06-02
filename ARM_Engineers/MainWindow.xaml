@@ -42,10 +42,12 @@
                 <TextBlock Text="Name and Surname" VerticalAlignment="Center" FontSize="18"/>
                 <materialDesign:PopupBox  Margin="5" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
                     <StackPanel>
-                        <Button Content="Добавить"/>
-                        <Button Content="списать"/>
-                        <Button  x:Name="FullScreenButton" Content="Развернуть" Click="FullScreenButton_Click"/>
+                        <Button Content="Добавить..."/>
                         <Separator/>
+                        <Button Content="Журнал событий"/>
+                        <Button Content="Отчетность"/>
+                        <Separator/>
+                        <Button  x:Name="FullScreenButton" Content="На весь экран" Click="FullScreenButton_Click"/>
                         <Button x:Name="PopUpButton_Quit" Content="Выход" Click="PopUpButton_Quit_Click"/>
                     </StackPanel>
                 </materialDesign:PopupBox>
@@ -78,13 +80,13 @@
                     <ListViewItem Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="CheckBold" Height="25" Margin="10" VerticalAlignment="Center"/>
-                            <TextBlock Text="На списание" VerticalAlignment="Center" Margin="20 10" FontSize="22"/>
+                            <TextBlock Text="Техобслуживание" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Margin="20 10" FontSize="12"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="CheckBold" Height="25" Margin="10" VerticalAlignment="Center"/>
-                            <TextBlock Text="Прочее" VerticalAlignment="Center" Margin="20 10" FontSize="22"/>
+                            <TextBlock Text="Списанные устройства" VerticalAlignment="Center" Margin="20 10" FontSize="12"/>
                         </StackPanel>
                     </ListViewItem>
                 </ListView>
