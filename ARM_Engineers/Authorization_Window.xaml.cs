@@ -35,5 +35,10 @@ namespace ARM_Engineers
         {
             Environment.Exit(0);
         }
+
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
     }
 }

@@ -60,5 +60,11 @@ namespace ARM_Engineers
             
 
         }
+
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+
+        }
     }
 }

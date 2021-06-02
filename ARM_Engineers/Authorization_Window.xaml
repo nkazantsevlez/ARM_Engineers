@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ARM_Engineers"
         mc:Ignorable="d"
         Title="Авторизация" Height="400" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
-    <Grid>
+    <Grid MouseDown="Grid_MouseDown">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
