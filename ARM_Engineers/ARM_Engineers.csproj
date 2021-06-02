@@ -117,11 +117,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Employee_Window.xaml.cs">
+      <DependentUpon>Employee_Window.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Event_Log_Window.xaml.cs">
       <DependentUpon>Event_Log_Window.xaml</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
     <Page Include="Authorization_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Employee_Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

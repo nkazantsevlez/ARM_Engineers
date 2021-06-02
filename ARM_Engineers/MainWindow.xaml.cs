@@ -110,5 +110,12 @@ namespace ARM_Engineers
             event_Log_Window.Show();
 
         }
+
+        private void Employee_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Employee_Window employee_Window = new Employee_Window();
+            employee_Window.Show();
+
+        }
     }
 }
