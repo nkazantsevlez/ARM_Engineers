@@ -103,5 +103,12 @@ namespace ARM_Engineers
             }
 
         }
+
+        private void Event_Log_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Event_Log_Window event_Log_Window = new Event_Log_Window();
+            event_Log_Window.Show();
+
+        }
     }
 }

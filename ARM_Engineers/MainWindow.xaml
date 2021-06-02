@@ -37,15 +37,16 @@
 
     <Grid Background="LightGray" >
         <Grid Height="60" MouseDown="Grid_MouseDown" VerticalAlignment="Top" Background="#1aa3ff" >
-            <TextBlock Text="АРМ инженера отдела ИТ" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22"/>
+            <TextBlock x:Name="Heading" Text="АРМ инженера отдела ИТ" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22"/>
             <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock Text="Name and Surname" VerticalAlignment="Center" FontSize="18"/>
+                <TextBlock x:Name="UserName_TextBlock"  Text="Name and Surname" VerticalAlignment="Center" FontSize="18"/>
                 <materialDesign:PopupBox  Margin="5" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
                     <StackPanel>
                         <Button Content="Добавить..."/>
                         <Button Content="Поиск"/>
+                        <Button Content="Сотрудники"/>
                         <Separator/>
-                        <Button Content="Журнал событий"/>
+                        <Button x:Name="Event_Log_Button" Click="Event_Log_Button_Click" Content="Журнал событий"/>
                         <Button Content="Отчетность"/>
                         <Separator/>
                         <Button  x:Name="FullScreenButton" Content="На весь экран" Click="FullScreenButton_Click"/>
