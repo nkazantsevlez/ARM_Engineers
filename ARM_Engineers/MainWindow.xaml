@@ -43,6 +43,7 @@
                 <materialDesign:PopupBox  Margin="5" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
                     <StackPanel>
                         <Button Content="Добавить..."/>
+                        <Button Content="Поиск"/>
                         <Separator/>
                         <Button Content="Журнал событий"/>
                         <Button Content="Отчетность"/>
@@ -52,6 +53,49 @@
                     </StackPanel>
                 </materialDesign:PopupBox>
             </StackPanel>
+        </Grid>
+
+
+        <Grid x:Name="Workspace_Grid" Margin="60 60 0 0">
+
+            <GroupBox x:Name="Sklad_GroupBox">
+                <TabControl x:Name="Sklad_TabControl">
+                    <TabItem Header="Компьютеры" Width="100" Height="30"/>
+                    <TabItem Header="Процессоры" Width="100" Height="30"/>
+                    <TabItem Header="ОЗУ" Width="100" Height="30"/>
+                    <TabItem Header="Периферия" Width="100" Height="30"/>
+                    <TabItem Header="Принтеры" Width="100" Height="30"/>
+                    <TabItem Header="Сетевое оборудование" Width="100" Height="30"/>
+                    <TabItem Header="прочее" Width="100" Height="30"/>
+                </TabControl>
+            </GroupBox>
+            <GroupBox x:Name="Kabinety_GroupBox">
+                
+            </GroupBox>
+            <GroupBox x:Name="TechObsluzhivanie_GroupBox">
+                <TabControl x:Name="TechObsluzhivanie_TabControl">
+                    <TabItem Header="Компьютеры" Width="100" Height="30"/>
+                    <TabItem Header="Процессоры" Width="100" Height="30"/>
+                    <TabItem Header="ОЗУ" Width="100" Height="30"/>
+                    <TabItem Header="Периферия" Width="100" Height="30"/>
+                    <TabItem Header="Принтеры" Width="100" Height="30"/>
+                    <TabItem Header="Сетевое оборудование" Width="100" Height="30"/>
+                    <TabItem Header="прочее" Width="100" Height="30"/>
+                </TabControl>
+            </GroupBox>
+            <GroupBox x:Name="Spisanie_GroupBox">
+                <TabControl x:Name="Spisanie_TabControl">
+                    <TabItem Header="Компьютеры" Width="100" Height="30"/>
+                    <TabItem Header="Процессоры" Width="100" Height="30"/>
+                    <TabItem Header="ОЗУ" Width="100" Height="30"/>
+                    <TabItem Header="Периферия" Width="100" Height="30"/>
+                    <TabItem Header="Принтеры" Width="100" Height="30"/>
+                    <TabItem Header="Картриджы" Width="100" Height="30"/>
+                    <TabItem Header="Сетевое оборудование" Width="100" Height="30"/>
+                    <TabItem Header="прочее" Width="100" Height="30"/>
+                </TabControl>
+            </GroupBox>
+
         </Grid>
 
         <Grid x:Name="GridMenu" Width="60" HorizontalAlignment="Left" Background="#99d6ff">
@@ -64,7 +108,7 @@
                         <materialDesign:PackIcon Foreground="#99d6ff" Kind="Menu" Width="25" Height="25"/>
                     </Button>
                 </Grid>
-                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Foreground="#1aa3ff">
+                <ListView x:Name="MenuListView" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Foreground="#1aa3ff" SelectionChanged="ListView_SelectionChanged">
                     <ListViewItem Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="CheckBold" Height="25" Margin="10" VerticalAlignment="Center"/>
@@ -91,8 +135,6 @@
                     </ListViewItem>
                 </ListView>
             </StackPanel>
-
         </Grid>
-
     </Grid>
 </Window>

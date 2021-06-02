@@ -23,6 +23,11 @@ namespace ARM_Engineers
         public MainWindow()
         {
             InitializeComponent();
+            Sklad_GroupBox.Visibility = Visibility.Collapsed;
+            Kabinety_GroupBox.Visibility = Visibility.Collapsed;
+            TechObsluzhivanie_GroupBox.Visibility = Visibility.Collapsed;
+            Spisanie_GroupBox.Visibility = Visibility.Collapsed;
+
         }
 
         private void PopUpButton_Quit_Click(object sender, RoutedEventArgs e)
@@ -64,6 +69,38 @@ namespace ARM_Engineers
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
+
+        }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = MenuListView.SelectedIndex;
+            switch (index)
+            {
+                case 0: Sklad_GroupBox.Visibility = Visibility.Visible;
+                    Kabinety_GroupBox.Visibility = Visibility.Collapsed;
+                    TechObsluzhivanie_GroupBox.Visibility = Visibility.Collapsed; 
+                    Spisanie_GroupBox.Visibility = Visibility.Collapsed;
+                    break;
+                case 1: Kabinety_GroupBox.Visibility = Visibility.Visible;
+                    Sklad_GroupBox.Visibility = Visibility.Collapsed;
+                    TechObsluzhivanie_GroupBox.Visibility = Visibility.Collapsed;
+                    Spisanie_GroupBox.Visibility = Visibility.Collapsed; break;
+                case 2:
+                    Sklad_GroupBox.Visibility = Visibility.Collapsed;
+                    Kabinety_GroupBox.Visibility = Visibility.Collapsed;
+                    TechObsluzhivanie_GroupBox.Visibility = Visibility.Visible;
+                    Spisanie_GroupBox.Visibility = Visibility.Collapsed;
+                    break;
+                case 3:
+                    Sklad_GroupBox.Visibility = Visibility.Collapsed;
+                    Kabinety_GroupBox.Visibility = Visibility.Collapsed;
+                    TechObsluzhivanie_GroupBox.Visibility = Visibility.Collapsed;
+                    Spisanie_GroupBox.Visibility = Visibility.Visible;
+                    break;
+                default: MessageBox.Show("Ошибка!"); break;
+                   
+            }
 
         }
     }
