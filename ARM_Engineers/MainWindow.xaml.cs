@@ -27,13 +27,11 @@ namespace ARM_Engineers
             Kabinety_GroupBox.Visibility = Visibility.Collapsed;
             TechObsluzhivanie_GroupBox.Visibility = Visibility.Collapsed;
             Spisanie_GroupBox.Visibility = Visibility.Collapsed;
-
         }
 
         private void PopUpButton_Quit_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
-
         }
 
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
@@ -50,26 +48,21 @@ namespace ARM_Engineers
 
         private void FullScreenButton_Click(object sender, RoutedEventArgs e)
         {
-            if(WindowState==WindowState.Normal)
-            {
-                FullScreenButton.Content = "В окне";
-                
+            if (WindowState==WindowState.Normal)
+            {                
                 WindowState = WindowState.Maximized;
+                FullScreenButton.Content = "В окне";
             }
             else
             {
-                FullScreenButton.Content = "На весь экран";
                 WindowState = WindowState.Normal;
-
+                FullScreenButton.Content = "На весь экран";
             }
-            
-
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
-
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -77,15 +70,18 @@ namespace ARM_Engineers
             int index = MenuListView.SelectedIndex;
             switch (index)
             {
-                case 0: Sklad_GroupBox.Visibility = Visibility.Visible;
+                case 0: 
+                    Sklad_GroupBox.Visibility = Visibility.Visible;
                     Kabinety_GroupBox.Visibility = Visibility.Collapsed;
                     TechObsluzhivanie_GroupBox.Visibility = Visibility.Collapsed; 
                     Spisanie_GroupBox.Visibility = Visibility.Collapsed;
                     break;
-                case 1: Kabinety_GroupBox.Visibility = Visibility.Visible;
+                case 1: 
+                    Kabinety_GroupBox.Visibility = Visibility.Visible;
                     Sklad_GroupBox.Visibility = Visibility.Collapsed;
                     TechObsluzhivanie_GroupBox.Visibility = Visibility.Collapsed;
-                    Spisanie_GroupBox.Visibility = Visibility.Collapsed; break;
+                    Spisanie_GroupBox.Visibility = Visibility.Collapsed; 
+                    break;
                 case 2:
                     Sklad_GroupBox.Visibility = Visibility.Collapsed;
                     Kabinety_GroupBox.Visibility = Visibility.Collapsed;
@@ -98,7 +94,9 @@ namespace ARM_Engineers
                     TechObsluzhivanie_GroupBox.Visibility = Visibility.Collapsed;
                     Spisanie_GroupBox.Visibility = Visibility.Visible;
                     break;
-                default: MessageBox.Show("Ошибка!"); break;
+                default:
+                    MessageBox.Show("Ошибка!");
+                    break;
                    
             }
 
@@ -108,14 +106,12 @@ namespace ARM_Engineers
         {
             Event_Log_Window event_Log_Window = new Event_Log_Window();
             event_Log_Window.Show();
-
         }
 
         private void Employee_Button_Click(object sender, RoutedEventArgs e)
         {
             Employee_Window employee_Window = new Employee_Window();
             employee_Window.Show();
-
         }
     }
 }

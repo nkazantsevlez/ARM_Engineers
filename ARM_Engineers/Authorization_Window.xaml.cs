@@ -28,7 +28,7 @@ namespace ARM_Engineers
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
-            this.Close();
+            Close();
         }
 
         private void Close_Button_Click(object sender, RoutedEventArgs e)
