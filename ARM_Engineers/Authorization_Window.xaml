@@ -23,11 +23,11 @@
             <StackPanel Margin=" 10,30,10,0">
                 <StackPanel>
                     <Label Content="Логин:" FontSize="12" Foreground="#66c2ff" Margin="10,10,10,0"/>
-                    <TextBox BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Margin="10,0,10,0"/>
+                    <TextBox x:Name="Login_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Margin="10,0,10,0"/>
                 </StackPanel>
                 <StackPanel>
                     <Label Content="Пароль: " Foreground="#66c2ff" FontSize="12" Margin="10,10,10,0"/>
-                    <PasswordBox BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Margin="10,0,10,0"/>
+                    <PasswordBox x:Name="Password_PasswordBox"  BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Margin="10,0,10,0"/>
                 </StackPanel>
                 <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,0">
                     <Button x:Name="Autorization_Button" Content="Войти" Background="#80ccff" Foreground="White" Width="80" Height="30" BorderThickness="0" Margin="5" Click="Autorization_Button_Click" ></Button>
