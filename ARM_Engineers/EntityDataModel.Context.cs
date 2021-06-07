@@ -40,7 +40,7 @@ namespace ARM_Engineers
         public virtual DbSet<room> room { get; set; }
         public virtual DbSet<users> users { get; set; }
     
-        public virtual ObjectResult<Check_Login_And_Password_Result> Check_Login_And_Password(string login, string password)
+        public virtual ObjectResult<users> Check_Login_And_Password(string login, string password)
         {
             var loginParameter = login != null ?
                 new ObjectParameter("Login", login) :
@@ -50,7 +50,20 @@ namespace ARM_Engineers
                 new ObjectParameter("Password", password) :
                 new ObjectParameter("Password", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Check_Login_And_Password_Result>("Check_Login_And_Password", loginParameter, passwordParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<users>("Check_Login_And_Password", loginParameter, passwordParameter);
+        }
+    
+        public virtual ObjectResult<users> Check_Login_And_Password(string login, string password, MergeOption mergeOption)
+        {
+            var loginParameter = login != null ?
+                new ObjectParameter("Login", login) :
+                new ObjectParameter("Login", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<users>("Check_Login_And_Password", mergeOption, loginParameter, passwordParameter);
         }
     }
 }

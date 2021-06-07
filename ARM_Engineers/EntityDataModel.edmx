@@ -816,7 +816,7 @@
             <End Role="room" EntitySet="room" />
             <End Role="ram" EntitySet="ram" />
           </AssociationSet>
-          <FunctionImport Name="Check_Login_And_Password" ReturnType="Collection(arm_engineersModel.Check_Login_And_Password_Result)">
+          <FunctionImport Name="Check_Login_And_Password" EntitySet="users" ReturnType="Collection(arm_engineersModel.users)">
             <Parameter Name="Login" Mode="In" Type="String" />
             <Parameter Name="Password" Mode="In" Type="String" />
           </FunctionImport>
@@ -972,9 +972,6 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="Check_Login_And_Password" FunctionName="Хранилище arm_engineersModel.Check_Login_And_Password">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="arm_engineersModel.Check_Login_And_Password_Result" />
-            </ResultMapping>
           </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
