@@ -53,7 +53,13 @@ namespace ARM_Engineers
                         UserProgram.Surname = ResultCheck.Surname;
                     }
 
-
+                    var Event_Log_Entry = new event_log()
+                    {
+                        ID_Users = UserProgram.ID,
+                        Name= "Successful authorization"
+                    };
+                    context.event_log.Add(Event_Log_Entry);
+                    context.SaveChanges();
 
                     MainWindow mainWindow = new MainWindow();
                     mainWindow.Show();
