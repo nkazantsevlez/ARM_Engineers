@@ -46,7 +46,7 @@
           <Property Name="ID_Users" Type="int" />
           <Property Name="Date" Type="date" />
           <Property Name="Time" Type="time" Precision="0" />
-          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Event" Type="varchar" MaxLength="50" />
           <Property Name="Description" Type="text" />
         </EntityType>
         <EntityType Name="network_devices">
@@ -429,9 +429,9 @@
           <Property Name="ID_Users" Type="Int32" />
           <Property Name="Date" Type="DateTime" />
           <Property Name="Time" Type="Time" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="users" Relationship="Self.FK_event_log_users_ID" FromRole="event_log" ToRole="users" />
+          <Property Name="Event" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="network_devices">
           <Key>
@@ -829,11 +829,11 @@
           <EntitySetMapping Name="event_log">
             <EntityTypeMapping TypeName="arm_engineersModel.event_log">
               <MappingFragment StoreEntitySet="event_log">
+                <ScalarProperty Name="Event" ColumnName="Event" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ID_Users" ColumnName="ID_Users" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Time" ColumnName="Time" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>
