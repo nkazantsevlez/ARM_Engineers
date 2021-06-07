@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище arm_engineersModel" Provider="MySql.Data.MySqlClient" ProviderManifestToken="8.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище arm_engineersModel" Provider="MySql.Data.MySqlClient" ProviderManifestToken="8.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="cartridge">
           <Key>
             <PropertyRef Name="ID" />
@@ -44,8 +44,8 @@
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="ID_Users" Type="int" />
-          <Property Name="Date" Type="date" />
-          <Property Name="Time" Type="time" Precision="0" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Time" Type="time" Precision="0" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" />
           <Property Name="Description" Type="text" />
         </EntityType>
@@ -136,43 +136,6 @@
           <Property Name="Login_Auth" Type="varchar" MaxLength="255" />
           <Property Name="Password_Auth" Type="varchar" MaxLength="255" />
         </EntityType>
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6013: Первичный ключ в таблице или представлении "def.arm_engineers.cpu_view" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
-        <EntityType Name="cpu_view">
-          <Property Name="Inventory_Number" Type="int" />
-          <Property Name="Name" Type="varchar" MaxLength="50" />
-          <Property Name="Socket" Type="varchar" MaxLength="255" />
-          <Property Name="Clock_Frequency" Type="varchar" MaxLength="255" />
-          <Property Name="Number" Type="int" />
-        </EntityType>-->
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6013: Первичный ключ в таблице или представлении "def.arm_engineers.printer_view" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
-        <EntityType Name="printer_view">
-          <Property Name="Inventory_Number" Type="int" />
-          <Property Name="Name" Type="varchar" MaxLength="50" />
-          <Property Name="Name_Cartinge" Type="varchar" MaxLength="50" />
-          <Property Name="Number" Type="int" />
-          <Property Name="Description" Type="text" />
-        </EntityType>-->
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6013: Первичный ключ в таблице или представлении "def.arm_engineers.ram_view" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
-        <EntityType Name="ram_view">
-          <Property Name="Inventory_Number" Type="int" />
-          <Property Name="Name" Type="varchar" MaxLength="50" />
-          <Property Name="Type" Type="varchar" MaxLength="255" />
-          <Property Name="Memory_Size" Type="int" />
-          <Property Name="Operating_Freequency" Type="int" />
-          <Property Name="Number" Type="int" />
-          <Property Name="Description" Type="text" />
-        </EntityType>-->
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6013: Первичный ключ в таблице или представлении "def.arm_engineers.room_view" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
-        <EntityType Name="room_view">
-          <Property Name="Number" Type="int" />
-          <Property Name="Name" Type="varchar" MaxLength="50" />
-          <Property Name="Position" Type="varchar" MaxLength="255" />
-          <Property Name="Description" Type="text" />
-        </EntityType>-->
         <Association Name="FK_cartridge_room_ID">
           <End Role="room" Type="Self.room" Multiplicity="0..1" />
           <End Role="cartridge" Type="Self.cartridge" Multiplicity="*" />
@@ -415,8 +378,7 @@
             <End Role="room" EntitySet="room" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="arm_engineersModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
