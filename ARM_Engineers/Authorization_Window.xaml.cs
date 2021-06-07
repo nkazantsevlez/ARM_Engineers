@@ -26,9 +26,27 @@ namespace ARM_Engineers
 
         private void Autorization_Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            Close();
+            using (var context = new arm_engineersEntities())
+            {
+                var CheckLoginAndPassword = context.Check_Login_And_Password(Login_TextBox.Text, Password_PasswordBox.Password.ToString()).ToList();
+                if (CheckLoginAndPassword.Count() == 1)
+                {
+                    MessageBox.Show("Авторизация выполнена успешно");
+                    foreach (users ResultCheck in CheckLoginAndPassword)
+                    {
+                        UserProgram.ID = ResultCheck.ID;
+                        UserProgram.Name = ResultCheck.Name;
+                        UserProgram.Surname = ResultCheck.Surname;
+                    }
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Ошибка авторизации");
+                }
+            }
         }
 
         private void Close_Button_Click(object sender, RoutedEventArgs e)
