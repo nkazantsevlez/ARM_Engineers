@@ -26,6 +26,20 @@ namespace ARM_Engineers
 
         private void Autorization_Button_Click(object sender, RoutedEventArgs e)
         {
+            if(string.IsNullOrEmpty(Login_TextBox.Text))
+            {
+                MessageBox.Show("Введите логин","Ошибка",MessageBoxButton.OK,MessageBoxImage.Error);
+                Login_TextBox.Focus();
+                return;
+            }
+
+            if (string.IsNullOrEmpty(Password_PasswordBox.Password.ToString()))
+            {
+                MessageBox.Show("Введите пароль", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                Password_PasswordBox.Focus();
+                return;
+            }
+
             using (var context = new arm_engineersEntities())
             {
                 var CheckLoginAndPassword = context.Check_Login_And_Password(Login_TextBox.Text, Password_PasswordBox.Password.ToString()).ToList();
