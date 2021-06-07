@@ -1,0 +1,1002 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище arm_engineersModel" Provider="MySql.Data.MySqlClient" ProviderManifestToken="8.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="cartridge">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Inventory_Number" Type="int" />
+          <Property Name="Name_Cartinge" Type="varchar" MaxLength="50" />
+          <Property Name="ID_Room" Type="int" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <EntityType Name="cpu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Inventory_Number" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Socket" Type="varchar" MaxLength="255" />
+          <Property Name="Clock_Frequency" Type="varchar" MaxLength="255" />
+          <Property Name="ID_Room" Type="int" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <EntityType Name="employee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Surname" Type="varchar" MaxLength="255" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Middle_Name" Type="varchar" MaxLength="255" />
+          <Property Name="Position" Type="varchar" MaxLength="255" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <EntityType Name="event_log">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID_Users" Type="int" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Time" Type="time" Precision="0" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <EntityType Name="network_devices">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Inventory_Number" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="ID_Room" Type="int" />
+          <Property Name="Description" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="other_devices">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Inventory_Number" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="ID_Room" Type="int" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <EntityType Name="pc">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Inventory_Number" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="ID_CPU" Type="int" />
+          <Property Name="ID_RAM" Type="int" />
+          <Property Name="ID_Room" Type="int" />
+          <Property Name="ID_Employee" Type="int" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <EntityType Name="peripherals">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Inventory_Number" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="ID_Room" Type="int" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <EntityType Name="printer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Inventory_Number" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="ID_Cartrige" Type="int" />
+          <Property Name="ID_Room" Type="int" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <EntityType Name="ram">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Inventory_Number" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Type" Type="varchar" MaxLength="255" />
+          <Property Name="Memory_Size" Type="int" />
+          <Property Name="Operating_Freequency" Type="int" />
+          <Property Name="ID_Room" Type="int" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <EntityType Name="room">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Number" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="ID_Employee" Type="int" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Surname" Type="varchar" MaxLength="255" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Login_Auth" Type="varchar" MaxLength="255" />
+          <Property Name="Password_Auth" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "def.arm_engineers.cpu_view" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="cpu_view">
+          <Property Name="Inventory_Number" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Socket" Type="varchar" MaxLength="255" />
+          <Property Name="Clock_Frequency" Type="varchar" MaxLength="255" />
+          <Property Name="Number" Type="int" />
+        </EntityType>-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "def.arm_engineers.printer_view" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="printer_view">
+          <Property Name="Inventory_Number" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Name_Cartinge" Type="varchar" MaxLength="50" />
+          <Property Name="Number" Type="int" />
+          <Property Name="Description" Type="text" />
+        </EntityType>-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "def.arm_engineers.ram_view" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="ram_view">
+          <Property Name="Inventory_Number" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Type" Type="varchar" MaxLength="255" />
+          <Property Name="Memory_Size" Type="int" />
+          <Property Name="Operating_Freequency" Type="int" />
+          <Property Name="Number" Type="int" />
+          <Property Name="Description" Type="text" />
+        </EntityType>-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "def.arm_engineers.room_view" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="room_view">
+          <Property Name="Number" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Position" Type="varchar" MaxLength="255" />
+          <Property Name="Description" Type="text" />
+        </EntityType>-->
+        <Association Name="FK_cartridge_room_ID">
+          <End Role="room" Type="Self.room" Multiplicity="0..1" />
+          <End Role="cartridge" Type="Self.cartridge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="room">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="cartridge">
+              <PropertyRef Name="ID_Room" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cpu_room_ID">
+          <End Role="room" Type="Self.room" Multiplicity="0..1" />
+          <End Role="cpu" Type="Self.cpu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="room">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="cpu">
+              <PropertyRef Name="ID_Room" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_log_users_ID">
+          <End Role="users" Type="Self.users" Multiplicity="0..1" />
+          <End Role="event_log" Type="Self.event_log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="event_log">
+              <PropertyRef Name="ID_Users" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_network_devices_room_ID">
+          <End Role="room" Type="Self.room" Multiplicity="0..1" />
+          <End Role="network_devices" Type="Self.network_devices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="room">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="network_devices">
+              <PropertyRef Name="ID_Room" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_other_devices_room_ID">
+          <End Role="room" Type="Self.room" Multiplicity="0..1" />
+          <End Role="other_devices" Type="Self.other_devices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="room">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="other_devices">
+              <PropertyRef Name="ID_Room" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pc_cpu_ID">
+          <End Role="cpu" Type="Self.cpu" Multiplicity="0..1" />
+          <End Role="pc" Type="Self.pc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cpu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="pc">
+              <PropertyRef Name="ID_CPU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pc_employee_ID">
+          <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+          <End Role="pc" Type="Self.pc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="pc">
+              <PropertyRef Name="ID_Employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pc_ram_ID">
+          <End Role="ram" Type="Self.ram" Multiplicity="0..1" />
+          <End Role="pc" Type="Self.pc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ram">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="pc">
+              <PropertyRef Name="ID_RAM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pc_room_ID">
+          <End Role="room" Type="Self.room" Multiplicity="0..1" />
+          <End Role="pc" Type="Self.pc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="room">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="pc">
+              <PropertyRef Name="ID_Room" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_peripherals_room_ID">
+          <End Role="room" Type="Self.room" Multiplicity="0..1" />
+          <End Role="peripherals" Type="Self.peripherals" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="room">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="peripherals">
+              <PropertyRef Name="ID_Room" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_printer_cartridge_ID">
+          <End Role="cartridge" Type="Self.cartridge" Multiplicity="0..1" />
+          <End Role="printer" Type="Self.printer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cartridge">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="printer">
+              <PropertyRef Name="ID_Cartrige" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_printer_room_ID">
+          <End Role="room" Type="Self.room" Multiplicity="0..1" />
+          <End Role="printer" Type="Self.printer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="room">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="printer">
+              <PropertyRef Name="ID_Room" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ram_room_ID">
+          <End Role="room" Type="Self.room" Multiplicity="0..1" />
+          <End Role="ram" Type="Self.ram" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="room">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ram">
+              <PropertyRef Name="ID_Room" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_room_employee_ID">
+          <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+          <End Role="room" Type="Self.room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="room">
+              <PropertyRef Name="ID_Employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="Check_Login_And_Password" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="arm_engineers">
+          <Parameter Name="Login" Type="varchar" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="Хранилище arm_engineersModelContainer">
+          <EntitySet Name="cartridge" EntityType="Self.cartridge" Schema="arm_engineers" store:Type="Tables" />
+          <EntitySet Name="cpu" EntityType="Self.cpu" Schema="arm_engineers" store:Type="Tables" />
+          <EntitySet Name="employee" EntityType="Self.employee" Schema="arm_engineers" store:Type="Tables" />
+          <EntitySet Name="event_log" EntityType="Self.event_log" Schema="arm_engineers" store:Type="Tables" />
+          <EntitySet Name="network_devices" EntityType="Self.network_devices" Schema="arm_engineers" store:Type="Tables" />
+          <EntitySet Name="other_devices" EntityType="Self.other_devices" Schema="arm_engineers" store:Type="Tables" />
+          <EntitySet Name="pc" EntityType="Self.pc" Schema="arm_engineers" store:Type="Tables" />
+          <EntitySet Name="peripherals" EntityType="Self.peripherals" Schema="arm_engineers" store:Type="Tables" />
+          <EntitySet Name="printer" EntityType="Self.printer" Schema="arm_engineers" store:Type="Tables" />
+          <EntitySet Name="ram" EntityType="Self.ram" Schema="arm_engineers" store:Type="Tables" />
+          <EntitySet Name="room" EntityType="Self.room" Schema="arm_engineers" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="arm_engineers" store:Type="Tables" />
+          <AssociationSet Name="FK_cartridge_room_ID" Association="Self.FK_cartridge_room_ID">
+            <End Role="room" EntitySet="room" />
+            <End Role="cartridge" EntitySet="cartridge" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cpu_room_ID" Association="Self.FK_cpu_room_ID">
+            <End Role="room" EntitySet="room" />
+            <End Role="cpu" EntitySet="cpu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_log_users_ID" Association="Self.FK_event_log_users_ID">
+            <End Role="users" EntitySet="users" />
+            <End Role="event_log" EntitySet="event_log" />
+          </AssociationSet>
+          <AssociationSet Name="FK_network_devices_room_ID" Association="Self.FK_network_devices_room_ID">
+            <End Role="room" EntitySet="room" />
+            <End Role="network_devices" EntitySet="network_devices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_other_devices_room_ID" Association="Self.FK_other_devices_room_ID">
+            <End Role="room" EntitySet="room" />
+            <End Role="other_devices" EntitySet="other_devices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pc_cpu_ID" Association="Self.FK_pc_cpu_ID">
+            <End Role="cpu" EntitySet="cpu" />
+            <End Role="pc" EntitySet="pc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pc_employee_ID" Association="Self.FK_pc_employee_ID">
+            <End Role="employee" EntitySet="employee" />
+            <End Role="pc" EntitySet="pc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pc_ram_ID" Association="Self.FK_pc_ram_ID">
+            <End Role="ram" EntitySet="ram" />
+            <End Role="pc" EntitySet="pc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pc_room_ID" Association="Self.FK_pc_room_ID">
+            <End Role="room" EntitySet="room" />
+            <End Role="pc" EntitySet="pc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_peripherals_room_ID" Association="Self.FK_peripherals_room_ID">
+            <End Role="room" EntitySet="room" />
+            <End Role="peripherals" EntitySet="peripherals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_printer_cartridge_ID" Association="Self.FK_printer_cartridge_ID">
+            <End Role="cartridge" EntitySet="cartridge" />
+            <End Role="printer" EntitySet="printer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_printer_room_ID" Association="Self.FK_printer_room_ID">
+            <End Role="room" EntitySet="room" />
+            <End Role="printer" EntitySet="printer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ram_room_ID" Association="Self.FK_ram_room_ID">
+            <End Role="room" EntitySet="room" />
+            <End Role="ram" EntitySet="ram" />
+          </AssociationSet>
+          <AssociationSet Name="FK_room_employee_ID" Association="Self.FK_room_employee_ID">
+            <End Role="employee" EntitySet="employee" />
+            <End Role="room" EntitySet="room" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="arm_engineersModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="cartridge">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Inventory_Number" Type="Int32" />
+          <Property Name="Name_Cartinge" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Room" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="room" Relationship="Self.FK_cartridge_room_ID" FromRole="cartridge" ToRole="room" />
+          <NavigationProperty Name="printer" Relationship="Self.FK_printer_cartridge_ID" FromRole="cartridge" ToRole="printer" />
+        </EntityType>
+        <EntityType Name="cpu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Inventory_Number" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Socket" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Clock_Frequency" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Room" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="room" Relationship="Self.FK_cpu_room_ID" FromRole="cpu" ToRole="room" />
+          <NavigationProperty Name="pc" Relationship="Self.FK_pc_cpu_ID" FromRole="cpu" ToRole="pc" />
+        </EntityType>
+        <EntityType Name="employee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Middle_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Position" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="pc" Relationship="Self.FK_pc_employee_ID" FromRole="employee" ToRole="pc" />
+          <NavigationProperty Name="room" Relationship="Self.FK_room_employee_ID" FromRole="employee" ToRole="room" />
+        </EntityType>
+        <EntityType Name="event_log">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID_Users" Type="Int32" />
+          <Property Name="Date" Type="DateTime" />
+          <Property Name="Time" Type="Time" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="users" Relationship="Self.FK_event_log_users_ID" FromRole="event_log" ToRole="users" />
+        </EntityType>
+        <EntityType Name="network_devices">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Inventory_Number" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Room" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="room" Relationship="Self.FK_network_devices_room_ID" FromRole="network_devices" ToRole="room" />
+        </EntityType>
+        <EntityType Name="other_devices">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Inventory_Number" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Room" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="room" Relationship="Self.FK_other_devices_room_ID" FromRole="other_devices" ToRole="room" />
+        </EntityType>
+        <EntityType Name="pc">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Inventory_Number" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_CPU" Type="Int32" />
+          <Property Name="ID_RAM" Type="Int32" />
+          <Property Name="ID_Room" Type="Int32" />
+          <Property Name="ID_Employee" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="cpu" Relationship="Self.FK_pc_cpu_ID" FromRole="pc" ToRole="cpu" />
+          <NavigationProperty Name="employee" Relationship="Self.FK_pc_employee_ID" FromRole="pc" ToRole="employee" />
+          <NavigationProperty Name="ram" Relationship="Self.FK_pc_ram_ID" FromRole="pc" ToRole="ram" />
+          <NavigationProperty Name="room" Relationship="Self.FK_pc_room_ID" FromRole="pc" ToRole="room" />
+        </EntityType>
+        <EntityType Name="peripherals">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Inventory_Number" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Room" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="room" Relationship="Self.FK_peripherals_room_ID" FromRole="peripherals" ToRole="room" />
+        </EntityType>
+        <EntityType Name="printer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Inventory_Number" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Cartrige" Type="Int32" />
+          <Property Name="ID_Room" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="cartridge" Relationship="Self.FK_printer_cartridge_ID" FromRole="printer" ToRole="cartridge" />
+          <NavigationProperty Name="room" Relationship="Self.FK_printer_room_ID" FromRole="printer" ToRole="room" />
+        </EntityType>
+        <EntityType Name="ram">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Inventory_Number" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Memory_Size" Type="Int32" />
+          <Property Name="Operating_Freequency" Type="Int32" />
+          <Property Name="ID_Room" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="pc" Relationship="Self.FK_pc_ram_ID" FromRole="ram" ToRole="pc" />
+          <NavigationProperty Name="room" Relationship="Self.FK_ram_room_ID" FromRole="ram" ToRole="room" />
+        </EntityType>
+        <EntityType Name="room">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Employee" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="cartridge" Relationship="Self.FK_cartridge_room_ID" FromRole="room" ToRole="cartridge" />
+          <NavigationProperty Name="cpu" Relationship="Self.FK_cpu_room_ID" FromRole="room" ToRole="cpu" />
+          <NavigationProperty Name="employee" Relationship="Self.FK_room_employee_ID" FromRole="room" ToRole="employee" />
+          <NavigationProperty Name="network_devices" Relationship="Self.FK_network_devices_room_ID" FromRole="room" ToRole="network_devices" />
+          <NavigationProperty Name="other_devices" Relationship="Self.FK_other_devices_room_ID" FromRole="room" ToRole="other_devices" />
+          <NavigationProperty Name="pc" Relationship="Self.FK_pc_room_ID" FromRole="room" ToRole="pc" />
+          <NavigationProperty Name="peripherals" Relationship="Self.FK_peripherals_room_ID" FromRole="room" ToRole="peripherals" />
+          <NavigationProperty Name="printer" Relationship="Self.FK_printer_room_ID" FromRole="room" ToRole="printer" />
+          <NavigationProperty Name="ram" Relationship="Self.FK_ram_room_ID" FromRole="room" ToRole="ram" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Login_Auth" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Password_Auth" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="event_log" Relationship="Self.FK_event_log_users_ID" FromRole="users" ToRole="event_log" />
+        </EntityType>
+        <Association Name="FK_cartridge_room_ID">
+          <End Role="room" Type="Self.room" Multiplicity="0..1" />
+          <End Role="cartridge" Type="Self.cartridge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="room">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="cartridge">
+              <PropertyRef Name="ID_Room" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_printer_cartridge_ID">
+          <End Role="cartridge" Type="Self.cartridge" Multiplicity="0..1" />
+          <End Role="printer" Type="Self.printer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cartridge">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="printer">
+              <PropertyRef Name="ID_Cartrige" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cpu_room_ID">
+          <End Role="room" Type="Self.room" Multiplicity="0..1" />
+          <End Role="cpu" Type="Self.cpu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="room">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="cpu">
+              <PropertyRef Name="ID_Room" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pc_cpu_ID">
+          <End Role="cpu" Type="Self.cpu" Multiplicity="0..1" />
+          <End Role="pc" Type="Self.pc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cpu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="pc">
+              <PropertyRef Name="ID_CPU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pc_employee_ID">
+          <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+          <End Role="pc" Type="Self.pc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="pc">
+              <PropertyRef Name="ID_Employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_room_employee_ID">
+          <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+          <End Role="room" Type="Self.room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="room">
+              <PropertyRef Name="ID_Employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_log_users_ID">
+          <End Role="users" Type="Self.users" Multiplicity="0..1" />
+          <End Role="event_log" Type="Self.event_log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="event_log">
+              <PropertyRef Name="ID_Users" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_network_devices_room_ID">
+          <End Role="room" Type="Self.room" Multiplicity="0..1" />
+          <End Role="network_devices" Type="Self.network_devices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="room">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="network_devices">
+              <PropertyRef Name="ID_Room" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_other_devices_room_ID">
+          <End Role="room" Type="Self.room" Multiplicity="0..1" />
+          <End Role="other_devices" Type="Self.other_devices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="room">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="other_devices">
+              <PropertyRef Name="ID_Room" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pc_ram_ID">
+          <End Role="ram" Type="Self.ram" Multiplicity="0..1" />
+          <End Role="pc" Type="Self.pc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ram">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="pc">
+              <PropertyRef Name="ID_RAM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pc_room_ID">
+          <End Role="room" Type="Self.room" Multiplicity="0..1" />
+          <End Role="pc" Type="Self.pc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="room">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="pc">
+              <PropertyRef Name="ID_Room" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_peripherals_room_ID">
+          <End Role="room" Type="Self.room" Multiplicity="0..1" />
+          <End Role="peripherals" Type="Self.peripherals" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="room">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="peripherals">
+              <PropertyRef Name="ID_Room" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_printer_room_ID">
+          <End Role="room" Type="Self.room" Multiplicity="0..1" />
+          <End Role="printer" Type="Self.printer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="room">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="printer">
+              <PropertyRef Name="ID_Room" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ram_room_ID">
+          <End Role="room" Type="Self.room" Multiplicity="0..1" />
+          <End Role="ram" Type="Self.ram" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="room">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ram">
+              <PropertyRef Name="ID_Room" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="arm_engineersEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="cartridge" EntityType="Self.cartridge" />
+          <EntitySet Name="cpu" EntityType="Self.cpu" />
+          <EntitySet Name="employee" EntityType="Self.employee" />
+          <EntitySet Name="event_log" EntityType="Self.event_log" />
+          <EntitySet Name="network_devices" EntityType="Self.network_devices" />
+          <EntitySet Name="other_devices" EntityType="Self.other_devices" />
+          <EntitySet Name="pc" EntityType="Self.pc" />
+          <EntitySet Name="peripherals" EntityType="Self.peripherals" />
+          <EntitySet Name="printer" EntityType="Self.printer" />
+          <EntitySet Name="ram" EntityType="Self.ram" />
+          <EntitySet Name="room" EntityType="Self.room" />
+          <EntitySet Name="users" EntityType="Self.users" />
+          <AssociationSet Name="FK_cartridge_room_ID" Association="Self.FK_cartridge_room_ID">
+            <End Role="room" EntitySet="room" />
+            <End Role="cartridge" EntitySet="cartridge" />
+          </AssociationSet>
+          <AssociationSet Name="FK_printer_cartridge_ID" Association="Self.FK_printer_cartridge_ID">
+            <End Role="cartridge" EntitySet="cartridge" />
+            <End Role="printer" EntitySet="printer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cpu_room_ID" Association="Self.FK_cpu_room_ID">
+            <End Role="room" EntitySet="room" />
+            <End Role="cpu" EntitySet="cpu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pc_cpu_ID" Association="Self.FK_pc_cpu_ID">
+            <End Role="cpu" EntitySet="cpu" />
+            <End Role="pc" EntitySet="pc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pc_employee_ID" Association="Self.FK_pc_employee_ID">
+            <End Role="employee" EntitySet="employee" />
+            <End Role="pc" EntitySet="pc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_room_employee_ID" Association="Self.FK_room_employee_ID">
+            <End Role="employee" EntitySet="employee" />
+            <End Role="room" EntitySet="room" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_log_users_ID" Association="Self.FK_event_log_users_ID">
+            <End Role="users" EntitySet="users" />
+            <End Role="event_log" EntitySet="event_log" />
+          </AssociationSet>
+          <AssociationSet Name="FK_network_devices_room_ID" Association="Self.FK_network_devices_room_ID">
+            <End Role="room" EntitySet="room" />
+            <End Role="network_devices" EntitySet="network_devices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_other_devices_room_ID" Association="Self.FK_other_devices_room_ID">
+            <End Role="room" EntitySet="room" />
+            <End Role="other_devices" EntitySet="other_devices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pc_ram_ID" Association="Self.FK_pc_ram_ID">
+            <End Role="ram" EntitySet="ram" />
+            <End Role="pc" EntitySet="pc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pc_room_ID" Association="Self.FK_pc_room_ID">
+            <End Role="room" EntitySet="room" />
+            <End Role="pc" EntitySet="pc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_peripherals_room_ID" Association="Self.FK_peripherals_room_ID">
+            <End Role="room" EntitySet="room" />
+            <End Role="peripherals" EntitySet="peripherals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_printer_room_ID" Association="Self.FK_printer_room_ID">
+            <End Role="room" EntitySet="room" />
+            <End Role="printer" EntitySet="printer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ram_room_ID" Association="Self.FK_ram_room_ID">
+            <End Role="room" EntitySet="room" />
+            <End Role="ram" EntitySet="ram" />
+          </AssociationSet>
+          <FunctionImport Name="Check_Login_And_Password" ReturnType="Collection(arm_engineersModel.Check_Login_And_Password_Result)">
+            <Parameter Name="Login" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="Check_Login_And_Password_Result" />
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище arm_engineersModelContainer" CdmEntityContainer="arm_engineersEntities">
+          <EntitySetMapping Name="cartridge">
+            <EntityTypeMapping TypeName="arm_engineersModel.cartridge">
+              <MappingFragment StoreEntitySet="cartridge">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Inventory_Number" ColumnName="Inventory_Number" />
+                <ScalarProperty Name="Name_Cartinge" ColumnName="Name_Cartinge" />
+                <ScalarProperty Name="ID_Room" ColumnName="ID_Room" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cpu">
+            <EntityTypeMapping TypeName="arm_engineersModel.cpu">
+              <MappingFragment StoreEntitySet="cpu">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Inventory_Number" ColumnName="Inventory_Number" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Socket" ColumnName="Socket" />
+                <ScalarProperty Name="Clock_Frequency" ColumnName="Clock_Frequency" />
+                <ScalarProperty Name="ID_Room" ColumnName="ID_Room" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employee">
+            <EntityTypeMapping TypeName="arm_engineersModel.employee">
+              <MappingFragment StoreEntitySet="employee">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Middle_Name" ColumnName="Middle_Name" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="event_log">
+            <EntityTypeMapping TypeName="arm_engineersModel.event_log">
+              <MappingFragment StoreEntitySet="event_log">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_Users" ColumnName="ID_Users" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="network_devices">
+            <EntityTypeMapping TypeName="arm_engineersModel.network_devices">
+              <MappingFragment StoreEntitySet="network_devices">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Inventory_Number" ColumnName="Inventory_Number" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID_Room" ColumnName="ID_Room" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="other_devices">
+            <EntityTypeMapping TypeName="arm_engineersModel.other_devices">
+              <MappingFragment StoreEntitySet="other_devices">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Inventory_Number" ColumnName="Inventory_Number" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID_Room" ColumnName="ID_Room" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pc">
+            <EntityTypeMapping TypeName="arm_engineersModel.pc">
+              <MappingFragment StoreEntitySet="pc">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Inventory_Number" ColumnName="Inventory_Number" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID_CPU" ColumnName="ID_CPU" />
+                <ScalarProperty Name="ID_RAM" ColumnName="ID_RAM" />
+                <ScalarProperty Name="ID_Room" ColumnName="ID_Room" />
+                <ScalarProperty Name="ID_Employee" ColumnName="ID_Employee" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="peripherals">
+            <EntityTypeMapping TypeName="arm_engineersModel.peripherals">
+              <MappingFragment StoreEntitySet="peripherals">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Inventory_Number" ColumnName="Inventory_Number" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID_Room" ColumnName="ID_Room" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="printer">
+            <EntityTypeMapping TypeName="arm_engineersModel.printer">
+              <MappingFragment StoreEntitySet="printer">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Inventory_Number" ColumnName="Inventory_Number" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID_Cartrige" ColumnName="ID_Cartrige" />
+                <ScalarProperty Name="ID_Room" ColumnName="ID_Room" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ram">
+            <EntityTypeMapping TypeName="arm_engineersModel.ram">
+              <MappingFragment StoreEntitySet="ram">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Inventory_Number" ColumnName="Inventory_Number" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Memory_Size" ColumnName="Memory_Size" />
+                <ScalarProperty Name="Operating_Freequency" ColumnName="Operating_Freequency" />
+                <ScalarProperty Name="ID_Room" ColumnName="ID_Room" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="room">
+            <EntityTypeMapping TypeName="arm_engineersModel.room">
+              <MappingFragment StoreEntitySet="room">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID_Employee" ColumnName="ID_Employee" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="arm_engineersModel.users">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Login_Auth" ColumnName="Login_Auth" />
+                <ScalarProperty Name="Password_Auth" ColumnName="Password_Auth" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Check_Login_And_Password" FunctionName="Хранилище arm_engineersModel.Check_Login_And_Password">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="arm_engineersModel.Check_Login_And_Password_Result" />
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

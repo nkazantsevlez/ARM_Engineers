@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a13d874025ae479392f2e7c8be36a6bd" Name="Diagram1" ZoomLevel="34">
+        <EntityTypeShape EntityType="arm_engineersModel.cartridge" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="arm_engineersModel.cpu" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="arm_engineersModel.employee" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="arm_engineersModel.event_log" Width="1.5" PointX="12.625" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="arm_engineersModel.network_devices" Width="1.5" PointX="5.25" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="arm_engineersModel.other_devices" Width="1.5" PointX="5.25" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="arm_engineersModel.pc" Width="1.5" PointX="7.5" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="arm_engineersModel.peripherals" Width="1.5" PointX="5.25" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="arm_engineersModel.printer" Width="1.5" PointX="7.5" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="arm_engineersModel.ram" Width="1.5" PointX="5.25" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="arm_engineersModel.room" Width="1.5" PointX="3" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="arm_engineersModel.users" Width="1.5" PointX="10.375" PointY="8.375" IsExpanded="true" />
+        <AssociationConnector Association="arm_engineersModel.FK_cartridge_room_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="arm_engineersModel.FK_printer_cartridge_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="arm_engineersModel.FK_cpu_room_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="arm_engineersModel.FK_pc_cpu_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="arm_engineersModel.FK_pc_employee_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="arm_engineersModel.FK_room_employee_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="arm_engineersModel.FK_event_log_users_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="arm_engineersModel.FK_network_devices_room_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="arm_engineersModel.FK_other_devices_room_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="arm_engineersModel.FK_pc_ram_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="arm_engineersModel.FK_pc_room_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="arm_engineersModel.FK_peripherals_room_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="arm_engineersModel.FK_printer_room_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="arm_engineersModel.FK_ram_room_ID" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
