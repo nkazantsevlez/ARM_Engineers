@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace ARM_Engineers
 {
-    static class User
+    public static class UserProgram
     {
-        static int ID;
-        static String Surname;
-        static String Name;
+        public static int ID;
+        public static string Name;
+        public static string Surname;
     }
 }

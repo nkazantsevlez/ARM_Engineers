@@ -123,7 +123,7 @@
     <Compile Include="Event_Log_Window.xaml.cs">
       <DependentUpon>Event_Log_Window.xaml</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
+    <Compile Include="UserProgram.cs" />
     <Page Include="Authorization_Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
