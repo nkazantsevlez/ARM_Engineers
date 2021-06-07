@@ -44,8 +44,8 @@
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="ID_Users" Type="int" />
-          <Property Name="Date" Type="date" Nullable="false" />
-          <Property Name="Time" Type="time" Precision="0" Nullable="false" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Time" Type="time" Precision="0" />
           <Property Name="Name" Type="varchar" MaxLength="50" />
           <Property Name="Description" Type="text" />
         </EntityType>
