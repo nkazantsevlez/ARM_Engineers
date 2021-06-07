@@ -52,6 +52,9 @@ namespace ARM_Engineers
                         UserProgram.Name = ResultCheck.Name;
                         UserProgram.Surname = ResultCheck.Surname;
                     }
+
+
+
                     MainWindow mainWindow = new MainWindow();
                     mainWindow.Show();
                     Close();

@@ -42,7 +42,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Users" Type="int" />
           <Property Name="Date" Type="date" />
           <Property Name="Time" Type="time" Precision="0" />
