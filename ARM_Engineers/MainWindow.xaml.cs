@@ -27,6 +27,7 @@ namespace ARM_Engineers
             Kabinety_GroupBox.Visibility = Visibility.Collapsed;
             TechObsluzhivanie_GroupBox.Visibility = Visibility.Collapsed;
             Spisanie_GroupBox.Visibility = Visibility.Collapsed;
+            UserName_TextBlock.Text = UserProgram.Name + " " + UserProgram.Surname;
         }
 
         private void PopUpButton_Quit_Click(object sender, RoutedEventArgs e)
