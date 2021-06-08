@@ -23,6 +23,8 @@ namespace ARM_Engineers
         {
             InitializeComponent();
             OK_Cancel_DockPanel.Visibility = Visibility.Collapsed;
+            arm_engineersEntities context = new arm_engineersEntities();
+            Employee_DataGrid.ItemsSource = context.employee.ToList();
         }
 
         private void Edit_Button_Click(object sender, RoutedEventArgs e)
