@@ -43,7 +43,7 @@
                 <materialDesign:PopupBox  Margin="5" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
                     <StackPanel>
                         <Button Content="Добавить..."/>
-                        <Button Content="Поиск"/>
+                        <Button  x:Name="Search_Button" Content="Поиск" Click="Search_Button_Click"/>
                         <Button x:Name="Employee_Button" Click="Employee_Button_Click" Content="Сотрудники"/>
                         <Separator/>
                         <Button x:Name="Event_Log_Button" Click="Event_Log_Button_Click" Content="Журнал событий"/>

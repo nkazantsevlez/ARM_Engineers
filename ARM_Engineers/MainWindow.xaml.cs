@@ -97,8 +97,7 @@ namespace ARM_Engineers
                     break;
                 default:
                     MessageBox.Show("Ошибка!");
-                    break;
-                   
+                    break;                   
             }
 
         }
@@ -113,6 +112,12 @@ namespace ARM_Engineers
         {
             Employee_Window employee_Window = new Employee_Window();
             employee_Window.Show();
+        }
+
+        private void Search_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Search_Window search_Window = new Search_Window();
+            search_Window.Show();
         }
     }
 }

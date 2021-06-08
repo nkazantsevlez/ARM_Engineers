@@ -178,6 +178,9 @@
     <Compile Include="room.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Search_Window.xaml.cs">
+      <DependentUpon>Search_Window.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserProgram.cs" />
     <Compile Include="users.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
@@ -209,6 +212,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Search_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
