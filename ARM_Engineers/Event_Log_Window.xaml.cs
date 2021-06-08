@@ -33,5 +33,10 @@ namespace ARM_Engineers
         {
             Close();
         }
+
+        private void Event_Log_DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
