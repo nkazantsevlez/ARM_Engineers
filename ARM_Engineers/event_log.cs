@@ -16,10 +16,9 @@ namespace ARM_Engineers
     {
         public int ID { get; set; }
         public Nullable<int> ID_Users { get; set; }
-        public Nullable<System.DateTime> Date { get; set; }
-        public Nullable<System.TimeSpan> Time { get; set; }
         public string Description { get; set; }
         public string Event { get; set; }
+        public string DateTime { get; set; }
     
         public virtual users users { get; set; }
     }
