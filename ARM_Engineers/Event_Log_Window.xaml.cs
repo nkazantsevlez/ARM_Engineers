@@ -22,6 +22,8 @@ namespace ARM_Engineers
         public Event_Log_Window()
         {
             InitializeComponent();
+            arm_engineersEntities context = new arm_engineersEntities();
+            Event_Log_DataGrid.ItemsSource = context.event_log_view.ToList();
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)

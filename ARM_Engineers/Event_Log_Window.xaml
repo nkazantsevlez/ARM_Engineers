@@ -19,12 +19,12 @@
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
             
-            <DataGrid x:Name="Event_Log_DataGrid" Grid.Row="0" Margin="0,40,0,50" Grid.RowSpan="2" IsEnabled="False">
+            <DataGrid x:Name="Event_Log_DataGrid" Grid.Row="0" Margin="0,40,0,50" Grid.RowSpan="2" AutoGenerateColumns="False" IsReadOnly="True">
                 <DataGrid.Columns>
-                    <materialDesign:DataGridTextColumn Header="Дата"/>
-                    <materialDesign:DataGridTextColumn Header="Время"/>
-                    <materialDesign:DataGridTextColumn Header="Пользователь"/>
-                    <materialDesign:DataGridTextColumn Header="Событие"/>
+                    <materialDesign:DataGridTextColumn Header="ID" Binding="{Binding ID}" Visibility="Collapsed" />
+                    <materialDesign:DataGridTextColumn Header="Дата и время" Binding="{Binding DateTime}" />
+                    <materialDesign:DataGridTextColumn Header="Пользователь" Binding="{Binding Surname}" />
+                    <materialDesign:DataGridTextColumn Header="Событие" Binding="{Binding Event}"/>
                 </DataGrid.Columns>
             </DataGrid>
             
