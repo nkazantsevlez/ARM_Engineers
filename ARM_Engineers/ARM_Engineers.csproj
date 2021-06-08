@@ -151,6 +151,9 @@
     <Compile Include="event_log.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="event_log_view.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Event_Log_Window.xaml.cs">
       <DependentUpon>Event_Log_Window.xaml</DependentUpon>
     </Compile>

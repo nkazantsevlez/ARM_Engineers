@@ -39,6 +39,7 @@ namespace ARM_Engineers
         public virtual DbSet<ram> ram { get; set; }
         public virtual DbSet<room> room { get; set; }
         public virtual DbSet<users> users { get; set; }
+        public virtual DbSet<event_log_view> event_log_view { get; set; }
     
         public virtual ObjectResult<users> Check_Login_And_Password(string login, string password)
         {

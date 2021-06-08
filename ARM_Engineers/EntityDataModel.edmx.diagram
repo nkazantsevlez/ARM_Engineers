@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a13d874025ae479392f2e7c8be36a6bd" Name="Diagram1" ZoomLevel="97">
+      <Diagram DiagramId="a13d874025ae479392f2e7c8be36a6bd" Name="Diagram1" ZoomLevel="54">
         <EntityTypeShape EntityType="arm_engineersModel.cartridge" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
         <EntityTypeShape EntityType="arm_engineersModel.cpu" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
         <EntityTypeShape EntityType="arm_engineersModel.employee" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
@@ -31,6 +31,7 @@
         <AssociationConnector Association="arm_engineersModel.FK_peripherals_room_ID" ManuallyRouted="false" />
         <AssociationConnector Association="arm_engineersModel.FK_printer_room_ID" ManuallyRouted="false" />
         <AssociationConnector Association="arm_engineersModel.FK_ram_room_ID" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="arm_engineersModel.event_log_view" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

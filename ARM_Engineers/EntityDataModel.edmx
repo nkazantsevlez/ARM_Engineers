@@ -136,12 +136,16 @@
           <Property Name="Password_Auth" Type="varchar" MaxLength="255" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
-предупреждение 6013: Первичный ключ в таблице или представлении "def.arm_engineers.event_log_view" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+предупреждение 6002: В таблице или представлении "def.arm_engineers.event_log_view" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="event_log_view">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="DateTime" Type="varchar" MaxLength="255" />
           <Property Name="Surname" Type="varchar" MaxLength="255" />
           <Property Name="Event" Type="varchar" MaxLength="50" />
-        </EntityType>-->
+        </EntityType>
         <Association Name="FK_cartridge_room_ID">
           <End Role="room" Type="Self.room" Multiplicity="0..1" />
           <End Role="cartridge" Type="Self.cartridge" Multiplicity="*" />
@@ -327,6 +331,14 @@
           <EntitySet Name="ram" EntityType="Self.ram" Schema="arm_engineers" store:Type="Tables" />
           <EntitySet Name="room" EntityType="Self.room" Schema="arm_engineers" store:Type="Tables" />
           <EntitySet Name="users" EntityType="Self.users" Schema="arm_engineers" store:Type="Tables" />
+          <EntitySet Name="event_log_view" EntityType="Self.event_log_view" store:Type="Views" store:Schema="arm_engineers">
+            <DefiningQuery>SELECT
+`event_log_view`.`ID`, 
+`event_log_view`.`DateTime`, 
+`event_log_view`.`Surname`, 
+`event_log_view`.`Event`
+FROM `arm_engineers.event_log_view` AS `event_log_view`</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_cartridge_room_ID" Association="Self.FK_cartridge_room_ID">
             <End Role="room" EntitySet="room" />
             <End Role="cartridge" EntitySet="cartridge" />
@@ -787,8 +799,18 @@
             <Parameter Name="Login" Mode="In" Type="String" />
             <Parameter Name="Password" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="event_log_view" EntityType="arm_engineersModel.event_log_view" />
         </EntityContainer>
         <ComplexType Name="Check_Login_And_Password_Result" />
+        <EntityType Name="event_log_view">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="DateTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Surname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Event" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -939,6 +961,16 @@
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="Check_Login_And_Password" FunctionName="Хранилище arm_engineersModel.Check_Login_And_Password">
           </FunctionImportMapping>
+          <EntitySetMapping Name="event_log_view">
+            <EntityTypeMapping TypeName="arm_engineersModel.event_log_view">
+              <MappingFragment StoreEntitySet="event_log_view">
+                <ScalarProperty Name="Event" ColumnName="Event" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
