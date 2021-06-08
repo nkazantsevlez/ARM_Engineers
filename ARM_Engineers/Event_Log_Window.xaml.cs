@@ -11,13 +11,16 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Excel = Microsoft.Office.Interop.Excel;
+using Microsoft.Office.Interop.Excel;
+
 
 namespace ARM_Engineers
 {
     /// <summary>
     /// Логика взаимодействия для Event_Log_Window.xaml
     /// </summary>
-    public partial class Event_Log_Window : Window
+    public partial class Event_Log_Window : System.Windows.Window
     {
         public Event_Log_Window()
         {
