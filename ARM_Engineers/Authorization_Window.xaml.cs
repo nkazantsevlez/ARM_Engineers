@@ -56,6 +56,7 @@ namespace ARM_Engineers
                     var Event_Log_Entry = new event_log()
                     {
                         ID_Users = UserProgram.ID,
+                        DateTime=DateTime.Now.ToString(),
                         Event= "Successful authorization"
                     };
                     context.event_log.Add(Event_Log_Entry);
