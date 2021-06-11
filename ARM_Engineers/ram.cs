@@ -21,13 +21,13 @@ namespace ARM_Engineers
         }
     
         public int ID { get; set; }
-        public Nullable<int> Inventory_Number { get; set; }
         public string Name { get; set; }
         public string Type { get; set; }
         public Nullable<int> Memory_Size { get; set; }
         public Nullable<int> Operating_Freequency { get; set; }
         public Nullable<int> ID_Room { get; set; }
         public string Description { get; set; }
+        public Nullable<int> Inventory_Number_RAM { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<pc> pc { get; set; }

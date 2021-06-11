@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARM_Engineers"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="Search_Window" Height="500" Width="700" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Foreground="White">
     <Grid>
@@ -12,36 +13,178 @@
             <Button x:Name="Close_Button" Content="X" Margin="1" FontSize="20" HorizontalAlignment="Right" Background="{x:Null}"  BorderBrush="{x:Null}" Click="Close_Button_Click"/>
         </Grid>
         <Grid Margin="0 40 0 0">
-            <TabControl x:Name="Search_TabControl">
-                <TabItem Header="Компьютеры" Width="80" Height="20" FontSize="10">                    
-                    <DockPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
-                        <Label x:Name="Search_Label" Content="Поиск по инвентарному номеру:" />
-                        <TextBox x:Name="Search_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
-                    </DockPanel>
+            <TabControl x:Name="Search_TabControl" SelectionChanged="Search_TabControl_SelectionChanged">
+                <!--Вкладка ПК-->
+                <TabItem Header="Компьютеры" Width="80" Height="20" FontSize="10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <DockPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                            <Label x:Name="SearchPC_Label" Content="Поиск по инвентарному номеру:" />
+                            <TextBox x:Name="SearchPC_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                        </DockPanel>
+                        <DataGrid x:Name="SearchPC_DataGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <materialDesign:DataGridTextColumn Header="Инв/номер" Binding="{Binding Inventory_Number}" />
+                                <materialDesign:DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
+                                <materialDesign:DataGridTextColumn Header="Местоположение" Binding="{Binding Name_Room}" />
+                                <materialDesign:DataGridTextColumn Header="Ответственный" Binding="{Binding Surname}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
                 </TabItem>
+                <!--Вкладка Процессоры-->
                 <TabItem Header="Процессоры" Width="80" Height="20" FontSize="10">
-                    
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="39*"/>
+                            <ColumnDefinition Width="655*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <DockPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10,0,0" Grid.ColumnSpan="2">
+                            <Label x:Name="SearchCPU_Label" Content="Поиск по инвентарному номеру:" />
+                            <TextBox x:Name="SearchCPU_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150" TextChanged="SearchCPU_TextBox_TextChanged"/>
+                        </DockPanel>
+                        <DataGrid x:Name="SearchCPU_DataGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" Grid.ColumnSpan="2">
+                            <DataGrid.Columns>
+                                <materialDesign:DataGridTextColumn Header="Инв/номер" Binding="{Binding Inventory_Number_CPU}" />
+                                <materialDesign:DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
+                                <materialDesign:DataGridTextColumn Header="Сокет" Binding="{Binding Socket}"/>
+                                <materialDesign:DataGridTextColumn Header="Тактовая частота" Binding="{Binding Clock_Frequency}"/>
+                                <materialDesign:DataGridTextColumn Header="Местоположение" Binding="{Binding Name_Room}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
                 </TabItem>
+                <!--Вкладка ОЗУ-->
                 <TabItem Header="ОЗУ" Width="80" Height="20" FontSize="10">
-                    
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <DockPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                            <Label x:Name="SearchRAM_Label" Content="Поиск по инвентарному номеру:" />
+                            <TextBox x:Name="SearchRAM_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                        </DockPanel>
+                        <DataGrid x:Name="SearchRAM_DataGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <materialDesign:DataGridTextColumn Header="Инв/номер" Binding="{Binding Inventory_Number_RAM}" />
+                                <materialDesign:DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
+                                <materialDesign:DataGridTextColumn Header="Тип" Binding="{Binding Type}"/>
+                                <materialDesign:DataGridTextColumn Header="Объем памяти" Binding="{Binding Memory_Size}"/>
+                                <materialDesign:DataGridTextColumn Header="Тактовая частота" Binding="{Binding Operating_Freequency}"/>
+                                <materialDesign:DataGridTextColumn Header="Местоположение" Binding="{Binding Name_Room}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
                 </TabItem>
+                <!--Вкладка Периферия-->
                 <TabItem Header="Периферия" Width="80" Height="20" FontSize="10">
-                    
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <DockPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                            <Label x:Name="SearchPerifery_Label" Content="Поиск по инвентарному номеру:" />
+                            <TextBox x:Name="SearchPerifery_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                        </DockPanel>
+                        <DataGrid x:Name="SearchPerifery_DataGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <materialDesign:DataGridTextColumn Header="Инв/номер" Binding="{Binding Inventory_Number}" />
+                                <materialDesign:DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
+                                <materialDesign:DataGridTextColumn Header="Местоположение" Binding="{Binding Name_Room}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
                 </TabItem>
+                <!--Вкладка Принтеры-->
                 <TabItem Header="Принтеры" Width="80" Height="20" FontSize="10">
-                    
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <DockPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                            <Label x:Name="SearchPrinters_Label" Content="Поиск по инвентарному номеру:" />
+                            <TextBox x:Name="SearchPrinters_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                        </DockPanel>
+                        <DataGrid x:Name="SearchPrinters_DataGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <materialDesign:DataGridTextColumn Header="Инв/номер" Binding="{Binding Inventory_Number}" />
+                                <materialDesign:DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
+                                <materialDesign:DataGridTextColumn Header="Местоположение" Binding="{Binding Name_Room}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
                 </TabItem>
-                <TabItem Header="картриджы" Width="80" Height="20" FontSize="10">
-                    
+                <!--Вкладка Картриджы-->
+                <TabItem Header="Картриджы" Width="80" Height="20" FontSize="10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <DockPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                            <Label x:Name="SearchCartridge_Label" Content="Поиск по инвентарному номеру:" />
+                            <TextBox x:Name="SearchCartridge_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                        </DockPanel>
+                        <DataGrid x:Name="SearchCartridge_DataGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <materialDesign:DataGridTextColumn Header="Инв/номер" Binding="{Binding Inventory_Number}" />
+                                <materialDesign:DataGridTextColumn Header="Название" Binding="{Binding Name_Cartinge}"/>
+                                <materialDesign:DataGridTextColumn Header="Местоположение" Binding="{Binding Name_Room}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
                 </TabItem>
+                <!--Вкладка Сетевое оборудование-->
                 <TabItem Header="Сетевое оборудование" Width="80" Height="20" FontSize="10">
-                    
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <DockPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                            <Label x:Name="SearchNetwork_Label" Content="Поиск по инвентарному номеру:" />
+                            <TextBox x:Name="SearchNetwork_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                        </DockPanel>
+                        <DataGrid x:Name="SearchNetwork_DataGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <materialDesign:DataGridTextColumn Header="Инв/номер" Binding="{Binding Inventory_Number}" />
+                                <materialDesign:DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
+                                <materialDesign:DataGridTextColumn Header="Местоположение" Binding="{Binding Name_Room}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
                 </TabItem>
-                <TabItem Header="прочее" Width="80" Height="20">
-                    
+                <!--Вкладка Прочее-->
+                <TabItem Header="Прочее" Width="80" Height="20" FontSize="10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <DockPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                            <Label x:Name="SearchOther_Label" Content="Поиск по инвентарному номеру:" />
+                            <TextBox x:Name="SearchOther_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                        </DockPanel>
+                        <DataGrid x:Name="SearchOther_DataGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <materialDesign:DataGridTextColumn Header="Инв/номер" Binding="{Binding Inventory_Number}" />
+                                <materialDesign:DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
+                                <materialDesign:DataGridTextColumn Header="Местоположение" Binding="{Binding Name_Room}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
                 </TabItem>
             </TabControl>
         </Grid>
-
     </Grid>
 </Window>

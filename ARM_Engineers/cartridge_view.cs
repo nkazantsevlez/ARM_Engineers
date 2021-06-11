@@ -12,24 +12,12 @@ namespace ARM_Engineers
     using System;
     using System.Collections.Generic;
     
-    public partial class cpu
+    public partial class cartridge_view
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public cpu()
-        {
-            this.pc = new HashSet<pc>();
-        }
-    
         public int ID { get; set; }
-        public string Name { get; set; }
-        public string Socket { get; set; }
-        public string Clock_Frequency { get; set; }
-        public Nullable<int> ID_Room { get; set; }
+        public Nullable<int> Inventory_Number { get; set; }
+        public string Name_Cartinge { get; set; }
+        public string Name_Room { get; set; }
         public string Description { get; set; }
-        public Nullable<int> Inventory_Number_CPU { get; set; }
-    
-        public virtual room room { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<pc> pc { get; set; }
     }
 }

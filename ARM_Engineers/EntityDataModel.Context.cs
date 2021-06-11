@@ -40,6 +40,15 @@ namespace ARM_Engineers
         public virtual DbSet<room> room { get; set; }
         public virtual DbSet<users> users { get; set; }
         public virtual DbSet<event_log_view> event_log_view { get; set; }
+        public virtual DbSet<pc_viewsearch> pc_viewsearch { get; set; }
+        public virtual DbSet<pc_viewsklad> pc_viewsklad { get; set; }
+        public virtual DbSet<cartridge_view> cartridge_view { get; set; }
+        public virtual DbSet<cpu_view> cpu_view { get; set; }
+        public virtual DbSet<network_devices_view> network_devices_view { get; set; }
+        public virtual DbSet<other_devices_view> other_devices_view { get; set; }
+        public virtual DbSet<peripherals_view> peripherals_view { get; set; }
+        public virtual DbSet<printer_view> printer_view { get; set; }
+        public virtual DbSet<ram_view> ram_view { get; set; }
     
         public virtual ObjectResult<users> Check_Login_And_Password(string login, string password)
         {

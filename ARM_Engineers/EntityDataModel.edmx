@@ -20,7 +20,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Inventory_Number" Type="int" />
+          <Property Name="Inventory_Number_CPU" Type="int" />
           <Property Name="Name" Type="varchar" MaxLength="50" />
           <Property Name="Socket" Type="varchar" MaxLength="255" />
           <Property Name="Clock_Frequency" Type="varchar" MaxLength="255" />
@@ -107,7 +107,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Inventory_Number" Type="int" />
+          <Property Name="Inventory_Number_RAM" Type="int" />
           <Property Name="Name" Type="varchar" MaxLength="50" />
           <Property Name="Type" Type="varchar" MaxLength="255" />
           <Property Name="Memory_Size" Type="int" />
@@ -121,7 +121,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Number" Type="int" />
-          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Name_Room" Type="varchar" MaxLength="50" />
           <Property Name="ID_Employee" Type="int" />
           <Property Name="Description" Type="text" />
         </EntityType>
@@ -136,6 +136,32 @@
           <Property Name="Password_Auth" Type="varchar" MaxLength="255" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "def.arm_engineers.cartridge_view" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="cartridge_view">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Inventory_Number" Type="int" />
+          <Property Name="Name_Cartinge" Type="varchar" MaxLength="50" />
+          <Property Name="Name_Room" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "def.arm_engineers.cpu_view" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="cpu_view">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Inventory_Number_CPU" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Socket" Type="varchar" MaxLength="255" />
+          <Property Name="Clock_Frequency" Type="varchar" MaxLength="255" />
+          <Property Name="Name_Room" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "def.arm_engineers.event_log_view" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="event_log_view">
           <Key>
@@ -145,6 +171,94 @@
           <Property Name="DateTime" Type="varchar" MaxLength="255" />
           <Property Name="Surname" Type="varchar" MaxLength="255" />
           <Property Name="Event" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "def.arm_engineers.network_devices_view" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="network_devices_view">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Inventory_Number" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Name_Room" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "def.arm_engineers.other_devices_view" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="other_devices_view">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Inventory_Number" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Name_Room" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "def.arm_engineers.pc_viewsearch" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="pc_viewsearch">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Inventory_Number" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Name_Room" Type="varchar" MaxLength="50" />
+          <Property Name="Surname" Type="varchar" MaxLength="255" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "def.arm_engineers.pc_viewsklad" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="pc_viewsklad">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Inventory_Number" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Inventory_Number_CPU" Type="int" />
+          <Property Name="Inventory_Number_RAM" Type="int" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "def.arm_engineers.peripherals_view" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="peripherals_view">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Inventory_Number" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Name_Room" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "def.arm_engineers.printer_view" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="printer_view">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Inventory_Number" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Name_Room" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "def.arm_engineers.ram_view" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="ram_view">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Inventory_Number_RAM" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Type" Type="varchar" MaxLength="255" />
+          <Property Name="Memory_Size" Type="int" />
+          <Property Name="Operating_Freequency" Type="int" />
+          <Property Name="Name_Room" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="text" />
         </EntityType>
         <Association Name="FK_cartridge_room_ID">
           <End Role="room" Type="Self.room" Multiplicity="0..1" />
@@ -331,6 +445,26 @@
           <EntitySet Name="ram" EntityType="Self.ram" Schema="arm_engineers" store:Type="Tables" />
           <EntitySet Name="room" EntityType="Self.room" Schema="arm_engineers" store:Type="Tables" />
           <EntitySet Name="users" EntityType="Self.users" Schema="arm_engineers" store:Type="Tables" />
+          <EntitySet Name="cartridge_view" EntityType="Self.cartridge_view" store:Type="Views" store:Schema="arm_engineers">
+            <DefiningQuery>SELECT
+`cartridge_view`.`ID`, 
+`cartridge_view`.`Inventory_Number`, 
+`cartridge_view`.`Name_Cartinge`, 
+`cartridge_view`.`Name_Room`, 
+`cartridge_view`.`Description`
+FROM `arm_engineers.cartridge_view` AS `cartridge_view`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="cpu_view" EntityType="Self.cpu_view" store:Type="Views" store:Schema="arm_engineers">
+            <DefiningQuery>SELECT
+`cpu_view`.`ID`, 
+`cpu_view`.`Inventory_Number_CPU`, 
+`cpu_view`.`Name`, 
+`cpu_view`.`Socket`, 
+`cpu_view`.`Clock_Frequency`, 
+`cpu_view`.`Name_Room`, 
+`cpu_view`.`Description`
+FROM `arm_engineers.cpu_view` AS `cpu_view`</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="event_log_view" EntityType="Self.event_log_view" store:Type="Views" store:Schema="arm_engineers">
             <DefiningQuery>SELECT
 `event_log_view`.`ID`, 
@@ -338,6 +472,73 @@
 `event_log_view`.`Surname`, 
 `event_log_view`.`Event`
 FROM `arm_engineers.event_log_view` AS `event_log_view`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="network_devices_view" EntityType="Self.network_devices_view" store:Type="Views" store:Schema="arm_engineers">
+            <DefiningQuery>SELECT
+`network_devices_view`.`ID`, 
+`network_devices_view`.`Inventory_Number`, 
+`network_devices_view`.`Name`, 
+`network_devices_view`.`Name_Room`, 
+`network_devices_view`.`Description`
+FROM `arm_engineers.network_devices_view` AS `network_devices_view`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="other_devices_view" EntityType="Self.other_devices_view" store:Type="Views" store:Schema="arm_engineers">
+            <DefiningQuery>SELECT
+`other_devices_view`.`ID`, 
+`other_devices_view`.`Inventory_Number`, 
+`other_devices_view`.`Name`, 
+`other_devices_view`.`Name_Room`, 
+`other_devices_view`.`Description`
+FROM `arm_engineers.other_devices_view` AS `other_devices_view`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="pc_viewsearch" EntityType="Self.pc_viewsearch" store:Type="Views" store:Schema="arm_engineers">
+            <DefiningQuery>SELECT
+`pc_viewsearch`.`ID`, 
+`pc_viewsearch`.`Inventory_Number`, 
+`pc_viewsearch`.`Name`, 
+`pc_viewsearch`.`Name_Room`, 
+`pc_viewsearch`.`Surname`, 
+`pc_viewsearch`.`Description`
+FROM `arm_engineers.pc_viewsearch` AS `pc_viewsearch`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="pc_viewsklad" EntityType="Self.pc_viewsklad" store:Type="Views" store:Schema="arm_engineers">
+            <DefiningQuery>SELECT
+`pc_viewsklad`.`ID`, 
+`pc_viewsklad`.`Inventory_Number`, 
+`pc_viewsklad`.`Name`, 
+`pc_viewsklad`.`Inventory_Number_CPU`, 
+`pc_viewsklad`.`Inventory_Number_RAM`
+FROM `arm_engineers.pc_viewsklad` AS `pc_viewsklad`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="peripherals_view" EntityType="Self.peripherals_view" store:Type="Views" store:Schema="arm_engineers">
+            <DefiningQuery>SELECT
+`peripherals_view`.`ID`, 
+`peripherals_view`.`Inventory_Number`, 
+`peripherals_view`.`Name`, 
+`peripherals_view`.`Name_Room`, 
+`peripherals_view`.`Description`
+FROM `arm_engineers.peripherals_view` AS `peripherals_view`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="printer_view" EntityType="Self.printer_view" store:Type="Views" store:Schema="arm_engineers">
+            <DefiningQuery>SELECT
+`printer_view`.`ID`, 
+`printer_view`.`Inventory_Number`, 
+`printer_view`.`Name`, 
+`printer_view`.`Name_Room`, 
+`printer_view`.`Description`
+FROM `arm_engineers.printer_view` AS `printer_view`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ram_view" EntityType="Self.ram_view" store:Type="Views" store:Schema="arm_engineers">
+            <DefiningQuery>SELECT
+`ram_view`.`ID`, 
+`ram_view`.`Inventory_Number_RAM`, 
+`ram_view`.`Name`, 
+`ram_view`.`Type`, 
+`ram_view`.`Memory_Size`, 
+`ram_view`.`Operating_Freequency`, 
+`ram_view`.`Name_Room`, 
+`ram_view`.`Description`
+FROM `arm_engineers.ram_view` AS `ram_view`</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_cartridge_room_ID" Association="Self.FK_cartridge_room_ID">
             <End Role="room" EntitySet="room" />
@@ -417,7 +618,6 @@ FROM `arm_engineers.event_log_view` AS `event_log_view`</DefiningQuery>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Inventory_Number" Type="Int32" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Socket" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Clock_Frequency" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
@@ -425,6 +625,7 @@ FROM `arm_engineers.event_log_view` AS `event_log_view`</DefiningQuery>
           <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="room" Relationship="Self.FK_cpu_room_ID" FromRole="cpu" ToRole="room" />
           <NavigationProperty Name="pc" Relationship="Self.FK_pc_cpu_ID" FromRole="cpu" ToRole="pc" />
+          <Property Name="Inventory_Number_CPU" Type="Int32" />
         </EntityType>
         <EntityType Name="employee">
           <Key>
@@ -518,7 +719,6 @@ FROM `arm_engineers.event_log_view` AS `event_log_view`</DefiningQuery>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Inventory_Number" Type="Int32" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Memory_Size" Type="Int32" />
@@ -527,6 +727,7 @@ FROM `arm_engineers.event_log_view` AS `event_log_view`</DefiningQuery>
           <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="pc" Relationship="Self.FK_pc_ram_ID" FromRole="ram" ToRole="pc" />
           <NavigationProperty Name="room" Relationship="Self.FK_ram_room_ID" FromRole="ram" ToRole="room" />
+          <Property Name="Inventory_Number_RAM" Type="Int32" />
         </EntityType>
         <EntityType Name="room">
           <Key>
@@ -534,7 +735,6 @@ FROM `arm_engineers.event_log_view` AS `event_log_view`</DefiningQuery>
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Number" Type="Int32" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ID_Employee" Type="Int32" />
           <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="cartridge" Relationship="Self.FK_cartridge_room_ID" FromRole="room" ToRole="cartridge" />
@@ -546,6 +746,7 @@ FROM `arm_engineers.event_log_view` AS `event_log_view`</DefiningQuery>
           <NavigationProperty Name="peripherals" Relationship="Self.FK_peripherals_room_ID" FromRole="room" ToRole="peripherals" />
           <NavigationProperty Name="printer" Relationship="Self.FK_printer_room_ID" FromRole="room" ToRole="printer" />
           <NavigationProperty Name="ram" Relationship="Self.FK_ram_room_ID" FromRole="room" ToRole="ram" />
+          <Property Name="Name_Room" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="users">
           <Key>
@@ -800,6 +1001,15 @@ FROM `arm_engineers.event_log_view` AS `event_log_view`</DefiningQuery>
             <Parameter Name="Password" Mode="In" Type="String" />
           </FunctionImport>
           <EntitySet Name="event_log_view" EntityType="arm_engineersModel.event_log_view" />
+          <EntitySet Name="pc_viewsearch" EntityType="arm_engineersModel.pc_viewsearch" />
+          <EntitySet Name="pc_viewsklad" EntityType="arm_engineersModel.pc_viewsklad" />
+          <EntitySet Name="cartridge_view" EntityType="arm_engineersModel.cartridge_view" />
+          <EntitySet Name="cpu_view" EntityType="arm_engineersModel.cpu_view" />
+          <EntitySet Name="network_devices_view" EntityType="arm_engineersModel.network_devices_view" />
+          <EntitySet Name="other_devices_view" EntityType="arm_engineersModel.other_devices_view" />
+          <EntitySet Name="peripherals_view" EntityType="arm_engineersModel.peripherals_view" />
+          <EntitySet Name="printer_view" EntityType="arm_engineersModel.printer_view" />
+          <EntitySet Name="ram_view" EntityType="arm_engineersModel.ram_view" />
         </EntityContainer>
         <ComplexType Name="Check_Login_And_Password_Result" />
         <EntityType Name="event_log_view">
@@ -810,6 +1020,102 @@ FROM `arm_engineers.event_log_view` AS `event_log_view`</DefiningQuery>
           <Property Name="DateTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Surname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Event" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="pc_viewsearch">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Inventory_Number" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name_Room" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="Surname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="pc_viewsklad">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Inventory_Number" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Inventory_Number_CPU" Type="Int32" />
+          <Property Name="Inventory_Number_RAM" Type="Int32" />
+        </EntityType>
+        <EntityType Name="cartridge_view">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Inventory_Number" Type="Int32" />
+          <Property Name="Name_Cartinge" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name_Room" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="cpu_view">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Inventory_Number_CPU" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Socket" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Clock_Frequency" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Name_Room" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="network_devices_view">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Inventory_Number" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name_Room" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="other_devices_view">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Inventory_Number" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name_Room" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="peripherals_view">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Inventory_Number" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name_Room" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="printer_view">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Inventory_Number" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name_Room" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ram_view">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Inventory_Number_RAM" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Memory_Size" Type="Int32" />
+          <Property Name="Operating_Freequency" Type="Int32" />
+          <Property Name="Name_Room" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -831,8 +1137,8 @@ FROM `arm_engineers.event_log_view` AS `event_log_view`</DefiningQuery>
           <EntitySetMapping Name="cpu">
             <EntityTypeMapping TypeName="arm_engineersModel.cpu">
               <MappingFragment StoreEntitySet="cpu">
+                <ScalarProperty Name="Inventory_Number_CPU" ColumnName="Inventory_Number_CPU" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Inventory_Number" ColumnName="Inventory_Number" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Socket" ColumnName="Socket" />
                 <ScalarProperty Name="Clock_Frequency" ColumnName="Clock_Frequency" />
@@ -926,8 +1232,8 @@ FROM `arm_engineers.event_log_view` AS `event_log_view`</DefiningQuery>
           <EntitySetMapping Name="ram">
             <EntityTypeMapping TypeName="arm_engineersModel.ram">
               <MappingFragment StoreEntitySet="ram">
+                <ScalarProperty Name="Inventory_Number_RAM" ColumnName="Inventory_Number_RAM" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Inventory_Number" ColumnName="Inventory_Number" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Memory_Size" ColumnName="Memory_Size" />
@@ -940,9 +1246,9 @@ FROM `arm_engineers.event_log_view` AS `event_log_view`</DefiningQuery>
           <EntitySetMapping Name="room">
             <EntityTypeMapping TypeName="arm_engineersModel.room">
               <MappingFragment StoreEntitySet="room">
+                <ScalarProperty Name="Name_Room" ColumnName="Name_Room" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID_Employee" ColumnName="ID_Employee" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
@@ -967,6 +1273,111 @@ FROM `arm_engineers.event_log_view` AS `event_log_view`</DefiningQuery>
                 <ScalarProperty Name="Event" ColumnName="Event" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
                 <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pc_viewsearch">
+            <EntityTypeMapping TypeName="arm_engineersModel.pc_viewsearch">
+              <MappingFragment StoreEntitySet="pc_viewsearch">
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name_Room" ColumnName="Name_Room" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Inventory_Number" ColumnName="Inventory_Number" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pc_viewsklad">
+            <EntityTypeMapping TypeName="arm_engineersModel.pc_viewsklad">
+              <MappingFragment StoreEntitySet="pc_viewsklad">
+                <ScalarProperty Name="Inventory_Number_RAM" ColumnName="Inventory_Number_RAM" />
+                <ScalarProperty Name="Inventory_Number_CPU" ColumnName="Inventory_Number_CPU" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Inventory_Number" ColumnName="Inventory_Number" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cartridge_view">
+            <EntityTypeMapping TypeName="arm_engineersModel.cartridge_view">
+              <MappingFragment StoreEntitySet="cartridge_view">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name_Room" ColumnName="Name_Room" />
+                <ScalarProperty Name="Name_Cartinge" ColumnName="Name_Cartinge" />
+                <ScalarProperty Name="Inventory_Number" ColumnName="Inventory_Number" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cpu_view">
+            <EntityTypeMapping TypeName="arm_engineersModel.cpu_view">
+              <MappingFragment StoreEntitySet="cpu_view">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name_Room" ColumnName="Name_Room" />
+                <ScalarProperty Name="Clock_Frequency" ColumnName="Clock_Frequency" />
+                <ScalarProperty Name="Socket" ColumnName="Socket" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Inventory_Number_CPU" ColumnName="Inventory_Number_CPU" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="network_devices_view">
+            <EntityTypeMapping TypeName="arm_engineersModel.network_devices_view">
+              <MappingFragment StoreEntitySet="network_devices_view">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name_Room" ColumnName="Name_Room" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Inventory_Number" ColumnName="Inventory_Number" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="other_devices_view">
+            <EntityTypeMapping TypeName="arm_engineersModel.other_devices_view">
+              <MappingFragment StoreEntitySet="other_devices_view">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name_Room" ColumnName="Name_Room" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Inventory_Number" ColumnName="Inventory_Number" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="peripherals_view">
+            <EntityTypeMapping TypeName="arm_engineersModel.peripherals_view">
+              <MappingFragment StoreEntitySet="peripherals_view">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name_Room" ColumnName="Name_Room" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Inventory_Number" ColumnName="Inventory_Number" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="printer_view">
+            <EntityTypeMapping TypeName="arm_engineersModel.printer_view">
+              <MappingFragment StoreEntitySet="printer_view">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name_Room" ColumnName="Name_Room" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Inventory_Number" ColumnName="Inventory_Number" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ram_view">
+            <EntityTypeMapping TypeName="arm_engineersModel.ram_view">
+              <MappingFragment StoreEntitySet="ram_view">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name_Room" ColumnName="Name_Room" />
+                <ScalarProperty Name="Operating_Freequency" ColumnName="Operating_Freequency" />
+                <ScalarProperty Name="Memory_Size" ColumnName="Memory_Size" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Inventory_Number_RAM" ColumnName="Inventory_Number_RAM" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

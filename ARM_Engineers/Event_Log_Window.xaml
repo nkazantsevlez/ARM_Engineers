@@ -16,7 +16,6 @@
         <Grid>
             <DataGrid x:Name="Event_Log_DataGrid" Margin="0,40,0,0" Grid.RowSpan="2" AutoGenerateColumns="False" IsReadOnly="True">
                 <DataGrid.Columns>
-                    <!--<materialDesign:DataGridTextColumn Header="ID" Binding="{Binding ID}" Visibility="Collapsed" /> --> 
                     <materialDesign:DataGridTextColumn Header="Дата и время" Binding="{Binding DateTime}" />
                     <materialDesign:DataGridTextColumn Header="Пользователь" Binding="{Binding Surname}" />
                     <materialDesign:DataGridTextColumn Header="Событие" Binding="{Binding Event}"/>
