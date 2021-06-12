@@ -118,6 +118,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddNew_Window.xaml.cs">
+      <DependentUpon>AddNew_Window.xaml</DependentUpon>
+    </Compile>
     <Compile Include="cartridge.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
@@ -215,6 +218,10 @@
     <Compile Include="users.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
+    <Page Include="AddNew_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Authorization_Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -42,7 +42,7 @@
                 <TextBlock x:Name="UserName_TextBlock"  Text="Name and Surname" VerticalAlignment="Center" FontSize="18"/>
                 <materialDesign:PopupBox  Margin="5" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
                     <StackPanel>
-                        <Button Content="Добавить..."/>
+                        <Button x:Name="AddNew_Button" Content="Добавить..." Click="AddNew_Button_Click"/>
                         <Button  x:Name="Search_Button" Content="Поиск" Click="Search_Button_Click"/>
                         <Button x:Name="Employee_Button" Click="Employee_Button_Click" Content="Сотрудники"/>
                         <Separator/>

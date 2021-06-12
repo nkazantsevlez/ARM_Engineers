@@ -127,5 +127,11 @@ namespace ARM_Engineers
             Search_Window search_Window = new Search_Window();
             search_Window.Show();
         }
+
+        private void AddNew_Button_Click(object sender, RoutedEventArgs e)
+        {
+            AddNew_Window addNew_Window = new AddNew_Window();
+            addNew_Window.Show();
+        }
     }
 }

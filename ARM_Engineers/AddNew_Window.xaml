@@ -1,0 +1,234 @@
+﻿<Window x:Class="ARM_Engineers.AddNew_Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ARM_Engineers"
+        mc:Ignorable="d"
+        Title="AddNew_Window" Height="500" Width="700" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Foreground="White">
+    <Grid>
+        <Grid Height="40" VerticalAlignment="Top" Background="#1aa3ff" MouseDown="Grid_MouseDown">
+            <TextBlock x:Name="Heading" Text="Добавление нового устройства" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22"/>
+            <Button x:Name="Close_Button" Content="X" Margin="1" FontSize="20" HorizontalAlignment="Right" Background="{x:Null}"  BorderBrush="{x:Null}" Click="Close_Button_Click"/>
+        </Grid>
+        <Grid Margin=" 0 40 0 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            
+            <ComboBox x:Name="SelectNew_ComboBox" Grid.Row="0" SelectionChanged="SelectNew_ComboBox_SelectionChanged">
+                <TextBlock Text="Компьютер"/>
+                <TextBlock Text="Процессор"/>
+                <TextBlock Text="Оперативная память"/>
+                <TextBlock Text="Периферия"/>
+                <TextBlock Text="Принтер"/>
+                <TextBlock Text="Картридж"/>
+                <TextBlock Text="Сетевое устройство"/>
+                <TextBlock Text="Прочее"/>
+            </ComboBox>
+            <Button x:Name="AddNew_Button" Grid.Row="2" Content="Добавить" Background="#80ccff" Foreground="White" HorizontalAlignment="Left" Width="150" Height="30" BorderThickness="0" Margin="20 5 0 0" Click="AddNew_Button_Click" />
+            
+            <GroupBox x:Name="PC_Add_Groupbox" Grid.Row="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <DockPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                        <Label x:Name="AddPC_InventoryNumber_Label" Content="Инвентарный номер:" />
+                        <TextBox x:Name="AddPC_InventoryNumber_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                    </DockPanel>
+                </Grid>                
+            </GroupBox>
+            
+            <GroupBox x:Name="RAM_Add_Groupbox" Grid.Row="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <DockPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                        <Label x:Name="AddRAM_InventoryNumber_Label" Content="Инвентарный номер:" />
+                        <TextBox x:Name="AddRAM_InventoryNumber_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                        <Label x:Name="AddRAM_Name_Label" Content="Название:" />
+                        <TextBox x:Name="AddRAM_Name_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                        <Label x:Name="AddRAM_Type_Label" Content="Тип памяти:" />
+                        <TextBox x:Name="AddRAM_Type_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                        <Label x:Name="AddRAM_MemorySize_Label" Content="Объем памяти:" />
+                        <TextBox x:Name="AddRAM_MemorySize_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                        <Label x:Name="AddRAM_OperatingFreequency_Label" Content="Рабочая частота:" />
+                        <TextBox x:Name="AddRAM_OperatingFreequency_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                        <Label x:Name="AddRAM_Description_Label" Content="Примечания:" />
+                        <TextBox x:Name="AddRAM_Description_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                    </DockPanel>
+                </Grid>
+            </GroupBox>
+            
+            <GroupBox x:Name="CPU_Add_Groupbox" Grid.Row="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <DockPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                        <Label x:Name="AddCPU_InventoryNumber_Label" Content="Инвентарный номер:" />
+                        <TextBox x:Name="AddCPU_InventoryNumber_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                        <Label x:Name="AddCPU_Name_Label" Content="Название:" />
+                        <TextBox x:Name="AddCPU_Name_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                        <Label x:Name="AddCPU_Soclet_Label" Content="Сокет:" />
+                        <TextBox x:Name="AddCPU_Socket_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                        <Label x:Name="AddCPU_ClockFrequency_Label" Content="Тактовая частота:" />
+                        <TextBox x:Name="AddCPU_ClockFrequency_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                        <Label x:Name="AddCPU_Description_Label" Content="Примечания:" />
+                        <TextBox x:Name="AddCPU_Description_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                    </DockPanel>
+                </Grid>
+            </GroupBox>
+
+            <GroupBox x:Name="Peripherals_Add_Groupbox" Grid.Row="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <DockPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                        <Label x:Name="AddPeripherals_InventoryNumber_Label" Content="Инвентарный номер:" />
+                        <TextBox x:Name="AddPeripherals_InventoryNumber_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                        <Label x:Name="AddPeripherals_Name_Label" Content="Название:" />
+                        <TextBox x:Name="AddPeripherals_Name_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                        <Label x:Name="AddPeripherals_Description_Label" Content="Примечания:" />
+                        <TextBox x:Name="AddPeripherals_Description_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                    </DockPanel>
+                </Grid>
+            </GroupBox>
+            
+            <GroupBox x:Name="Printers_Add_Groupbox" Grid.Row="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <DockPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                        <Label x:Name="AddPrinters_InventoryNumber_Label" Content="Инвентарный номер:" />
+                        <TextBox x:Name="AddPrinters_InventoryNumber_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                        <Label x:Name="AddPrinters_Name_Label" Content="Название:" />
+                        <TextBox x:Name="AddPrinters_Name_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                        <Label x:Name="AddPrinters_Description_Label" Content="Примечания:" />
+                        <TextBox x:Name="AddPrinters_Description_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                    </DockPanel>
+                </Grid>
+            </GroupBox>
+
+            <GroupBox x:Name="Cartrige_Add_Groupbox" Grid.Row="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <DockPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                        <Label x:Name="AddCartrige_InventoryNumber_Label" Content="Инвентарный номер:" />
+                        <TextBox x:Name="AddCartrige_InventoryNumber_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                        <Label x:Name="AddCartrige_Name_Label" Content="Название:" />
+                        <TextBox x:Name="AddCartrige_Name_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                        <Label x:Name="AddCartrige_Description_Label" Content="Примечания:" />
+                        <TextBox x:Name="AddCartrige_Description_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                    </DockPanel>
+                </Grid>
+            </GroupBox>
+
+            <GroupBox x:Name="NetworkDevices_Add_Groupbox" Grid.Row="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <DockPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                        <Label x:Name="AddNetworkDevices_InventoryNumber_Label" Content="Инвентарный номер:" />
+                        <TextBox x:Name="AddNetworkDevices_InventoryNumber_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                        <Label x:Name="AddNetworkDevices_Name_Label" Content="Название:" />
+                        <TextBox x:Name="AddNetworkDevices_Name_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                        <Label x:Name="AddNetworkDevices_Description_Label" Content="Примечания:" />
+                        <TextBox x:Name="AddNetworkDevices_Description_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                    </DockPanel>
+                </Grid>
+            </GroupBox>
+
+            <GroupBox x:Name="OtherDevices_Add_Groupbox" Grid.Row="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <DockPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                        <Label x:Name="AddOtherDevices_InventoryNumber_Label" Content="Инвентарный номер:" />
+                        <TextBox x:Name="AddOtherDevices_InventoryNumber_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                        <Label x:Name="AddOtherDevices_Name_Label" Content="Название:" />
+                        <TextBox x:Name="AddOtherDevices_Name_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
+                        <Label x:Name="AddOtherDevices_Description_Label" Content="Примечания:" />
+                        <TextBox x:Name="AddOtherDevices_Description_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                    </DockPanel>
+                </Grid>
+            </GroupBox>
+        </Grid>
+
+    </Grid>
+</Window>
