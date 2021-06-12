@@ -25,6 +25,8 @@ namespace ARM_Engineers
         {
             InitializeComponent();
 
+
+
             Sklad_GroupBox.Visibility = Visibility.Collapsed;
 
             Kabinety_GroupBox.Visibility = Visibility.Collapsed;

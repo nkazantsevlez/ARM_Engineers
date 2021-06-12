@@ -70,7 +70,7 @@
                         </Grid.RowDefinitions>
                         <DockPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
                             <Label x:Name="SearchRAM_Label" Content="Поиск по инвентарному номеру:" />
-                            <TextBox x:Name="SearchRAM_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                            <TextBox x:Name="SearchRAM_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150" TextChanged="SearchRAM_TextBox_TextChanged"/>
                         </DockPanel>
                         <DataGrid x:Name="SearchRAM_DataGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
                             <DataGrid.Columns>
@@ -93,7 +93,7 @@
                         </Grid.RowDefinitions>
                         <DockPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
                             <Label x:Name="SearchPerifery_Label" Content="Поиск по инвентарному номеру:" />
-                            <TextBox x:Name="SearchPerifery_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                            <TextBox x:Name="SearchPerifery_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150" TextChanged="SearchPerifery_TextBox_TextChanged"/>
                         </DockPanel>
                         <DataGrid x:Name="SearchPerifery_DataGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
                             <DataGrid.Columns>
@@ -113,7 +113,7 @@
                         </Grid.RowDefinitions>
                         <DockPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
                             <Label x:Name="SearchPrinters_Label" Content="Поиск по инвентарному номеру:" />
-                            <TextBox x:Name="SearchPrinters_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                            <TextBox x:Name="SearchPrinters_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150" TextChanged="SearchPrinters_TextBox_TextChanged"/>
                         </DockPanel>
                         <DataGrid x:Name="SearchPrinters_DataGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
                             <DataGrid.Columns>
@@ -133,7 +133,7 @@
                         </Grid.RowDefinitions>
                         <DockPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
                             <Label x:Name="SearchCartridge_Label" Content="Поиск по инвентарному номеру:" />
-                            <TextBox x:Name="SearchCartridge_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                            <TextBox x:Name="SearchCartridge_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150" TextChanged="SearchCartridge_TextBox_TextChanged"/>
                         </DockPanel>
                         <DataGrid x:Name="SearchCartridge_DataGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
                             <DataGrid.Columns>
@@ -153,7 +153,7 @@
                         </Grid.RowDefinitions>
                         <DockPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
                             <Label x:Name="SearchNetwork_Label" Content="Поиск по инвентарному номеру:" />
-                            <TextBox x:Name="SearchNetwork_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                            <TextBox x:Name="SearchNetwork_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150" TextChanged="SearchNetwork_TextBox_TextChanged"/>
                         </DockPanel>
                         <DataGrid x:Name="SearchNetwork_DataGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
                             <DataGrid.Columns>
@@ -173,7 +173,7 @@
                         </Grid.RowDefinitions>
                         <DockPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10">
                             <Label x:Name="SearchOther_Label" Content="Поиск по инвентарному номеру:" />
-                            <TextBox x:Name="SearchOther_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150"/>
+                            <TextBox x:Name="SearchOther_TextBox" BorderBrush="#66c2ff" BorderThickness="0,0,0,2" Foreground="#66c2ff" Width="150" TextChanged="SearchOther_TextBox_TextChanged"/>
                         </DockPanel>
                         <DataGrid x:Name="SearchOther_DataGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
                             <DataGrid.Columns>
