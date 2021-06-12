@@ -205,6 +205,9 @@
     <Compile Include="room.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="room_view.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Search_Window.xaml.cs">
       <DependentUpon>Search_Window.xaml</DependentUpon>
     </Compile>

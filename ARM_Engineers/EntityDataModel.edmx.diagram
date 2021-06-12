@@ -41,6 +41,7 @@
         <EntityTypeShape EntityType="arm_engineersModel.peripherals_view" Width="1.5" PointX="2.75" PointY="6.75" />
         <EntityTypeShape EntityType="arm_engineersModel.printer_view" Width="1.5" PointX="7.75" PointY="3.75" />
         <EntityTypeShape EntityType="arm_engineersModel.ram_view" Width="1.5" PointX="7.75" PointY="6.75" />
+        <EntityTypeShape EntityType="arm_engineersModel.room_view" Width="1.5" PointX="9.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -71,6 +71,13 @@
                 </TabControl>
             </GroupBox>
             <GroupBox x:Name="Kabinety_GroupBox">
+                <DataGrid x:Name="Kabinety_DataGrid" AutoGenerateColumns="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <materialDesign:DataGridTextColumn Header="№" Binding="{Binding Number}" />
+                        <materialDesign:DataGridTextColumn Header="Название" Binding="{Binding Name_Room}"/>
+                        <materialDesign:DataGridTextColumn Header="Ответственный" Binding="{Binding Surname}" />
+                    </DataGrid.Columns>
+                </DataGrid>
                 
             </GroupBox>
             <GroupBox x:Name="TechObsluzhivanie_GroupBox">

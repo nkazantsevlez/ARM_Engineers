@@ -20,13 +20,21 @@ namespace ARM_Engineers
     /// </summary>
     public partial class MainWindow : Window
     {
+        arm_engineersEntities context = new arm_engineersEntities();
         public MainWindow()
         {
             InitializeComponent();
+
             Sklad_GroupBox.Visibility = Visibility.Collapsed;
+
             Kabinety_GroupBox.Visibility = Visibility.Collapsed;
+            Kabinety_DataGrid.ItemsSource = context.room_view.ToList();
+
             TechObsluzhivanie_GroupBox.Visibility = Visibility.Collapsed;
+
+
             Spisanie_GroupBox.Visibility = Visibility.Collapsed;
+
             UserName_TextBlock.Text = UserProgram.Name + " " + UserProgram.Surname;
         }
 

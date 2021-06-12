@@ -260,6 +260,18 @@
           <Property Name="Name_Room" Type="varchar" MaxLength="50" />
           <Property Name="Description" Type="text" />
         </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "def.arm_engineers.room_view" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="room_view">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Number" Type="int" />
+          <Property Name="Name_Room" Type="varchar" MaxLength="50" />
+          <Property Name="Surname" Type="varchar" MaxLength="255" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
         <Association Name="FK_cartridge_room_ID">
           <End Role="room" Type="Self.room" Multiplicity="0..1" />
           <End Role="cartridge" Type="Self.cartridge" Multiplicity="*" />
@@ -539,6 +551,15 @@ FROM `arm_engineers.printer_view` AS `printer_view`</DefiningQuery>
 `ram_view`.`Name_Room`, 
 `ram_view`.`Description`
 FROM `arm_engineers.ram_view` AS `ram_view`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="room_view" EntityType="Self.room_view" store:Type="Views" store:Schema="arm_engineers">
+            <DefiningQuery>SELECT
+`room_view`.`ID`, 
+`room_view`.`Number`, 
+`room_view`.`Name_Room`, 
+`room_view`.`Surname`, 
+`room_view`.`Description`
+FROM `arm_engineers.room_view` AS `room_view`</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_cartridge_room_ID" Association="Self.FK_cartridge_room_ID">
             <End Role="room" EntitySet="room" />
@@ -1010,6 +1031,7 @@ FROM `arm_engineers.ram_view` AS `ram_view`</DefiningQuery>
           <EntitySet Name="peripherals_view" EntityType="arm_engineersModel.peripherals_view" />
           <EntitySet Name="printer_view" EntityType="arm_engineersModel.printer_view" />
           <EntitySet Name="ram_view" EntityType="arm_engineersModel.ram_view" />
+          <EntitySet Name="room_view" EntityType="arm_engineersModel.room_view" />
         </EntityContainer>
         <ComplexType Name="Check_Login_And_Password_Result" />
         <EntityType Name="event_log_view">
@@ -1115,6 +1137,16 @@ FROM `arm_engineers.ram_view` AS `ram_view`</DefiningQuery>
           <Property Name="Memory_Size" Type="Int32" />
           <Property Name="Operating_Freequency" Type="Int32" />
           <Property Name="Name_Room" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="room_view">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="Int32" />
+          <Property Name="Name_Room" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Surname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
@@ -1378,6 +1410,17 @@ FROM `arm_engineers.ram_view` AS `ram_view`</DefiningQuery>
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Inventory_Number_RAM" ColumnName="Inventory_Number_RAM" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="room_view">
+            <EntityTypeMapping TypeName="arm_engineersModel.room_view">
+              <MappingFragment StoreEntitySet="room_view">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name_Room" ColumnName="Name_Room" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

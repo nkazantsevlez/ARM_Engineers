@@ -49,6 +49,7 @@ namespace ARM_Engineers
         public virtual DbSet<peripherals_view> peripherals_view { get; set; }
         public virtual DbSet<printer_view> printer_view { get; set; }
         public virtual DbSet<ram_view> ram_view { get; set; }
+        public virtual DbSet<room_view> room_view { get; set; }
     
         public virtual ObjectResult<users> Check_Login_And_Password(string login, string password)
         {
