@@ -41,7 +41,6 @@ namespace ARM_Engineers
         public virtual DbSet<users> users { get; set; }
         public virtual DbSet<event_log_view> event_log_view { get; set; }
         public virtual DbSet<pc_viewsearch> pc_viewsearch { get; set; }
-        public virtual DbSet<pc_viewsklad> pc_viewsklad { get; set; }
         public virtual DbSet<cartridge_view> cartridge_view { get; set; }
         public virtual DbSet<cpu_view> cpu_view { get; set; }
         public virtual DbSet<network_devices_view> network_devices_view { get; set; }
@@ -75,6 +74,110 @@ namespace ARM_Engineers
                 new ObjectParameter("Password", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<users>("Check_Login_And_Password", mergeOption, loginParameter, passwordParameter);
+        }
+    
+        public virtual int moving_Cartridge(Nullable<int> inventory_Number, Nullable<int> iD_Room)
+        {
+            var inventory_NumberParameter = inventory_Number.HasValue ?
+                new ObjectParameter("Inventory_Number", inventory_Number) :
+                new ObjectParameter("Inventory_Number", typeof(int));
+    
+            var iD_RoomParameter = iD_Room.HasValue ?
+                new ObjectParameter("ID_Room", iD_Room) :
+                new ObjectParameter("ID_Room", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("moving_Cartridge", inventory_NumberParameter, iD_RoomParameter);
+        }
+    
+        public virtual int moving_CPU(Nullable<int> inventory_Number, Nullable<int> iD_Room)
+        {
+            var inventory_NumberParameter = inventory_Number.HasValue ?
+                new ObjectParameter("Inventory_Number", inventory_Number) :
+                new ObjectParameter("Inventory_Number", typeof(int));
+    
+            var iD_RoomParameter = iD_Room.HasValue ?
+                new ObjectParameter("ID_Room", iD_Room) :
+                new ObjectParameter("ID_Room", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("moving_CPU", inventory_NumberParameter, iD_RoomParameter);
+        }
+    
+        public virtual int moving_NetworkDevices(Nullable<int> inventory_Number, Nullable<int> iD_Room)
+        {
+            var inventory_NumberParameter = inventory_Number.HasValue ?
+                new ObjectParameter("Inventory_Number", inventory_Number) :
+                new ObjectParameter("Inventory_Number", typeof(int));
+    
+            var iD_RoomParameter = iD_Room.HasValue ?
+                new ObjectParameter("ID_Room", iD_Room) :
+                new ObjectParameter("ID_Room", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("moving_NetworkDevices", inventory_NumberParameter, iD_RoomParameter);
+        }
+    
+        public virtual int moving_OtherDevices(Nullable<int> inventory_Number, Nullable<int> iD_Room)
+        {
+            var inventory_NumberParameter = inventory_Number.HasValue ?
+                new ObjectParameter("Inventory_Number", inventory_Number) :
+                new ObjectParameter("Inventory_Number", typeof(int));
+    
+            var iD_RoomParameter = iD_Room.HasValue ?
+                new ObjectParameter("ID_Room", iD_Room) :
+                new ObjectParameter("ID_Room", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("moving_OtherDevices", inventory_NumberParameter, iD_RoomParameter);
+        }
+    
+        public virtual int moving_pc(Nullable<int> inventory_Number_PC, Nullable<int> id_room)
+        {
+            var inventory_Number_PCParameter = inventory_Number_PC.HasValue ?
+                new ObjectParameter("inventory_Number_PC", inventory_Number_PC) :
+                new ObjectParameter("inventory_Number_PC", typeof(int));
+    
+            var id_roomParameter = id_room.HasValue ?
+                new ObjectParameter("id_room", id_room) :
+                new ObjectParameter("id_room", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("moving_pc", inventory_Number_PCParameter, id_roomParameter);
+        }
+    
+        public virtual int Moving_Peripherals(Nullable<int> inventory_Number, Nullable<int> iD_Room)
+        {
+            var inventory_NumberParameter = inventory_Number.HasValue ?
+                new ObjectParameter("Inventory_Number", inventory_Number) :
+                new ObjectParameter("Inventory_Number", typeof(int));
+    
+            var iD_RoomParameter = iD_Room.HasValue ?
+                new ObjectParameter("ID_Room", iD_Room) :
+                new ObjectParameter("ID_Room", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Moving_Peripherals", inventory_NumberParameter, iD_RoomParameter);
+        }
+    
+        public virtual int moving_printer(Nullable<int> inventory_Number, Nullable<int> iD_Room)
+        {
+            var inventory_NumberParameter = inventory_Number.HasValue ?
+                new ObjectParameter("Inventory_Number", inventory_Number) :
+                new ObjectParameter("Inventory_Number", typeof(int));
+    
+            var iD_RoomParameter = iD_Room.HasValue ?
+                new ObjectParameter("ID_Room", iD_Room) :
+                new ObjectParameter("ID_Room", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("moving_printer", inventory_NumberParameter, iD_RoomParameter);
+        }
+    
+        public virtual int moving_RAM(Nullable<int> inventory_Number, Nullable<int> iD_Room)
+        {
+            var inventory_NumberParameter = inventory_Number.HasValue ?
+                new ObjectParameter("Inventory_Number", inventory_Number) :
+                new ObjectParameter("Inventory_Number", typeof(int));
+    
+            var iD_RoomParameter = iD_Room.HasValue ?
+                new ObjectParameter("ID_Room", iD_Room) :
+                new ObjectParameter("ID_Room", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("moving_RAM", inventory_NumberParameter, iD_RoomParameter);
         }
     }
 }

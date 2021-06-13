@@ -210,18 +210,6 @@
           <Property Name="Description" Type="text" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "def.arm_engineers.pc_viewsklad" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
-        <EntityType Name="pc_viewsklad">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="Inventory_Number" Type="int" />
-          <Property Name="Name" Type="varchar" MaxLength="50" />
-          <Property Name="Inventory_Number_CPU" Type="int" />
-          <Property Name="Inventory_Number_RAM" Type="int" />
-        </EntityType>
-        <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "def.arm_engineers.peripherals_view" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="peripherals_view">
           <Key>
@@ -444,6 +432,38 @@
           <Parameter Name="Login" Type="varchar" Mode="In" />
           <Parameter Name="Password" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="moving_Cartridge" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="arm_engineers">
+          <Parameter Name="Inventory_Number" Type="int" Mode="In" />
+          <Parameter Name="ID_Room" Type="int" Mode="In" />
+        </Function>
+        <Function Name="moving_CPU" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="arm_engineers">
+          <Parameter Name="Inventory_Number" Type="int" Mode="In" />
+          <Parameter Name="ID_Room" Type="int" Mode="In" />
+        </Function>
+        <Function Name="moving_NetworkDevices" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="arm_engineers">
+          <Parameter Name="Inventory_Number" Type="int" Mode="In" />
+          <Parameter Name="ID_Room" Type="int" Mode="In" />
+        </Function>
+        <Function Name="moving_OtherDevices" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="arm_engineers">
+          <Parameter Name="Inventory_Number" Type="int" Mode="In" />
+          <Parameter Name="ID_Room" Type="int" Mode="In" />
+        </Function>
+        <Function Name="moving_pc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="arm_engineers">
+          <Parameter Name="inventory_Number_PC" Type="int" Mode="In" />
+          <Parameter Name="id_room" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Moving_Peripherals" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="arm_engineers">
+          <Parameter Name="Inventory_Number" Type="int" Mode="In" />
+          <Parameter Name="ID_Room" Type="int" Mode="In" />
+        </Function>
+        <Function Name="moving_printer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="arm_engineers">
+          <Parameter Name="Inventory_Number" Type="int" Mode="In" />
+          <Parameter Name="ID_Room" Type="int" Mode="In" />
+        </Function>
+        <Function Name="moving_RAM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="arm_engineers">
+          <Parameter Name="Inventory_Number" Type="int" Mode="In" />
+          <Parameter Name="ID_Room" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="Хранилище arm_engineersModelContainer">
           <EntitySet Name="cartridge" EntityType="Self.cartridge" Schema="arm_engineers" store:Type="Tables" />
           <EntitySet Name="cpu" EntityType="Self.cpu" Schema="arm_engineers" store:Type="Tables" />
@@ -512,15 +532,6 @@ FROM `arm_engineers.other_devices_view` AS `other_devices_view`</DefiningQuery>
 `pc_viewsearch`.`Surname`, 
 `pc_viewsearch`.`Description`
 FROM `arm_engineers.pc_viewsearch` AS `pc_viewsearch`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="pc_viewsklad" EntityType="Self.pc_viewsklad" store:Type="Views" store:Schema="arm_engineers">
-            <DefiningQuery>SELECT
-`pc_viewsklad`.`ID`, 
-`pc_viewsklad`.`Inventory_Number`, 
-`pc_viewsklad`.`Name`, 
-`pc_viewsklad`.`Inventory_Number_CPU`, 
-`pc_viewsklad`.`Inventory_Number_RAM`
-FROM `arm_engineers.pc_viewsklad` AS `pc_viewsklad`</DefiningQuery>
           </EntitySet>
           <EntitySet Name="peripherals_view" EntityType="Self.peripherals_view" store:Type="Views" store:Schema="arm_engineers">
             <DefiningQuery>SELECT
@@ -1023,7 +1034,6 @@ FROM `arm_engineers.room_view` AS `room_view`</DefiningQuery>
           </FunctionImport>
           <EntitySet Name="event_log_view" EntityType="arm_engineersModel.event_log_view" />
           <EntitySet Name="pc_viewsearch" EntityType="arm_engineersModel.pc_viewsearch" />
-          <EntitySet Name="pc_viewsklad" EntityType="arm_engineersModel.pc_viewsklad" />
           <EntitySet Name="cartridge_view" EntityType="arm_engineersModel.cartridge_view" />
           <EntitySet Name="cpu_view" EntityType="arm_engineersModel.cpu_view" />
           <EntitySet Name="network_devices_view" EntityType="arm_engineersModel.network_devices_view" />
@@ -1032,6 +1042,38 @@ FROM `arm_engineers.room_view` AS `room_view`</DefiningQuery>
           <EntitySet Name="printer_view" EntityType="arm_engineersModel.printer_view" />
           <EntitySet Name="ram_view" EntityType="arm_engineersModel.ram_view" />
           <EntitySet Name="room_view" EntityType="arm_engineersModel.room_view" />
+          <FunctionImport Name="moving_Cartridge">
+            <Parameter Name="Inventory_Number" Mode="In" Type="Int32" />
+            <Parameter Name="ID_Room" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="moving_CPU">
+            <Parameter Name="Inventory_Number" Mode="In" Type="Int32" />
+            <Parameter Name="ID_Room" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="moving_NetworkDevices">
+            <Parameter Name="Inventory_Number" Mode="In" Type="Int32" />
+            <Parameter Name="ID_Room" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="moving_OtherDevices">
+            <Parameter Name="Inventory_Number" Mode="In" Type="Int32" />
+            <Parameter Name="ID_Room" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="moving_pc">
+            <Parameter Name="inventory_Number_PC" Mode="In" Type="Int32" />
+            <Parameter Name="id_room" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Moving_Peripherals">
+            <Parameter Name="Inventory_Number" Mode="In" Type="Int32" />
+            <Parameter Name="ID_Room" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="moving_printer">
+            <Parameter Name="Inventory_Number" Mode="In" Type="Int32" />
+            <Parameter Name="ID_Room" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="moving_RAM">
+            <Parameter Name="Inventory_Number" Mode="In" Type="Int32" />
+            <Parameter Name="ID_Room" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Check_Login_And_Password_Result" />
         <EntityType Name="event_log_view">
@@ -1053,16 +1095,6 @@ FROM `arm_engineers.room_view` AS `room_view`</DefiningQuery>
           <Property Name="Name_Room" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
           <Property Name="Surname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="pc_viewsklad">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Inventory_Number" Type="Int32" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Inventory_Number_CPU" Type="Int32" />
-          <Property Name="Inventory_Number_RAM" Type="Int32" />
         </EntityType>
         <EntityType Name="cartridge_view">
           <Key>
@@ -1321,17 +1353,6 @@ FROM `arm_engineers.room_view` AS `room_view`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="pc_viewsklad">
-            <EntityTypeMapping TypeName="arm_engineersModel.pc_viewsklad">
-              <MappingFragment StoreEntitySet="pc_viewsklad">
-                <ScalarProperty Name="Inventory_Number_RAM" ColumnName="Inventory_Number_RAM" />
-                <ScalarProperty Name="Inventory_Number_CPU" ColumnName="Inventory_Number_CPU" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Inventory_Number" ColumnName="Inventory_Number" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="cartridge_view">
             <EntityTypeMapping TypeName="arm_engineersModel.cartridge_view">
               <MappingFragment StoreEntitySet="cartridge_view">
@@ -1425,6 +1446,14 @@ FROM `arm_engineers.room_view` AS `room_view`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="moving_Cartridge" FunctionName="Хранилище arm_engineersModel.moving_Cartridge" />
+          <FunctionImportMapping FunctionImportName="moving_CPU" FunctionName="Хранилище arm_engineersModel.moving_CPU" />
+          <FunctionImportMapping FunctionImportName="moving_NetworkDevices" FunctionName="Хранилище arm_engineersModel.moving_NetworkDevices" />
+          <FunctionImportMapping FunctionImportName="moving_OtherDevices" FunctionName="Хранилище arm_engineersModel.moving_OtherDevices" />
+          <FunctionImportMapping FunctionImportName="moving_pc" FunctionName="Хранилище arm_engineersModel.moving_pc" />
+          <FunctionImportMapping FunctionImportName="Moving_Peripherals" FunctionName="Хранилище arm_engineersModel.Moving_Peripherals" />
+          <FunctionImportMapping FunctionImportName="moving_printer" FunctionName="Хранилище arm_engineersModel.moving_printer" />
+          <FunctionImportMapping FunctionImportName="moving_RAM" FunctionName="Хранилище arm_engineersModel.moving_RAM" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

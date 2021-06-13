@@ -33,7 +33,6 @@
         <AssociationConnector Association="arm_engineersModel.FK_ram_room_ID" ManuallyRouted="false" />
         <EntityTypeShape EntityType="arm_engineersModel.event_log_view" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="arm_engineersModel.pc_viewsearch" Width="1.5" PointX="3.75" PointY="0.75" />
-        <EntityTypeShape EntityType="arm_engineersModel.pc_viewsklad" Width="1.5" PointX="0.75" PointY="3.75" />
         <EntityTypeShape EntityType="arm_engineersModel.cartridge_view" Width="1.5" PointX="3.75" PointY="3.75" />
         <EntityTypeShape EntityType="arm_engineersModel.cpu_view" Width="1.5" PointX="5.75" PointY="3.75" />
         <EntityTypeShape EntityType="arm_engineersModel.network_devices_view" Width="1.5" PointX="6.75" PointY="0.75" />

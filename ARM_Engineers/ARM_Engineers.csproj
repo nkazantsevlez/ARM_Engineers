@@ -184,9 +184,6 @@
     <Compile Include="pc_viewsearch.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="pc_viewsklad.cs">
-      <DependentUpon>EntityDataModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="peripherals.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
