@@ -64,7 +64,6 @@ namespace ARM_Engineers
             NetworkDevice_TechObsluzhivanie_DataGrid.ItemsSource = FilterNetworkDevicesTechObsluzhivanie.ToList();
             OtherDevice_TechObsluzhivanie_DataGrid.ItemsSource = FilterOtherDevicesTechObsluzhivanie.ToList();
 
-
             Spisanie_GroupBox.Visibility = Visibility.Collapsed;
             var FilterPCSpisanie = from b in context.pc_viewsearch where b.Name_Room == "Spisanie" select b;
             var FilterCPUSpisanie = from b in context.cpu_view where b.Name_Room == "Spisanie" select b;
@@ -82,7 +81,6 @@ namespace ARM_Engineers
             Cartridge_Spisanie_DataGrid.ItemsSource = FilterCartridgeSpisanie.ToList();
             NetworkDevice_Spisanie_DataGrid.ItemsSource = FilterNetworkDevicesSpisanie.ToList();
             OtherDevice_Spisanie_DataGrid.ItemsSource = FilterOtherDevicesSpisanie.ToList();
-
 
             UserName_TextBlock.Text = UserProgram.Name + " " + UserProgram.Surname;
         }

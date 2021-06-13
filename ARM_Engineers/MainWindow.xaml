@@ -63,7 +63,13 @@
                 <TabControl x:Name="Sklad_TabControl">
                     <TabItem Header="Компьютеры" Width="100" Height="30">
                         <DataGrid x:Name="PC_Sklad_DataGrid" AutoGenerateColumns="False" IsReadOnly="True">
-                            <DataGrid.Columns>
+                            <DataGrid.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Перенести"/>
+                                    <MenuItem Header="Списать"/>
+                                </ContextMenu>
+                            </DataGrid.ContextMenu>
+                        <DataGrid.Columns>
                                 <materialDesign:DataGridTextColumn Header="Инвентарный номер" Binding="{Binding Inventory_Number}" />
                                 <materialDesign:DataGridTextColumn Header="Название" Binding="{Binding Name}" />
                                 <materialDesign:DataGridTextColumn Header="Ответственный" Binding="{Binding Surname}"/>
@@ -74,6 +80,12 @@
                     
                     <TabItem Header="Процессоры" Width="100" Height="30">
                         <DataGrid x:Name="CPU_Sklad_Datagrid"  AutoGenerateColumns="False" IsReadOnly="True">
+                            <DataGrid.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Перенести"/>
+                                    <MenuItem Header="Списать"/>
+                                </ContextMenu>
+                            </DataGrid.ContextMenu>
                             <DataGrid.Columns>
                                 <materialDesign:DataGridTextColumn Header="Инв/номер" Binding="{Binding Inventory_Number_CPU}" />
                                 <materialDesign:DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
@@ -86,6 +98,12 @@
 
                     <TabItem Header="ОЗУ" Width="100" Height="30">
                         <DataGrid x:Name="RAM_Sklad_Datagrid" AutoGenerateColumns="False" IsReadOnly="True">
+                            <DataGrid.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Перенести"/>
+                                    <MenuItem Header="Списать"/>
+                                </ContextMenu>
+                            </DataGrid.ContextMenu>
                             <DataGrid.Columns>
                                 <materialDesign:DataGridTextColumn Header="Инв/номер" Binding="{Binding Inventory_Number_RAM}" />
                                 <materialDesign:DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
@@ -99,6 +117,12 @@
 
                     <TabItem Header="Периферия" Width="100" Height="30">
                         <DataGrid x:Name="Peripherals_Sklad_DataGrid" AutoGenerateColumns="False" IsReadOnly="True" >
+                            <DataGrid.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Перенести"/>
+                                    <MenuItem Header="Списать"/>
+                                </ContextMenu>
+                            </DataGrid.ContextMenu>
                             <DataGrid.Columns>
                                 <materialDesign:DataGridTextColumn Header="Инв/номер" Binding="{Binding Inventory_Number}" />
                                 <materialDesign:DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
@@ -114,6 +138,12 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <DataGrid x:Name="Printers_Sklad_DataGrid" Grid.Column="0" AutoGenerateColumns="False" IsReadOnly="True">
+                                <DataGrid.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Перенести"/>
+                                        <MenuItem Header="Списать"/>
+                                    </ContextMenu>
+                                </DataGrid.ContextMenu>
                                 <DataGrid.Columns>
                                     <materialDesign:DataGridTextColumn Header="Инв/номер" Binding="{Binding Inventory_Number}" />
                                     <materialDesign:DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
@@ -121,6 +151,12 @@
                                 </DataGrid.Columns>
                             </DataGrid>
                             <DataGrid x:Name="Cartridge_Sklad_DataGrid" Grid.Column="1" AutoGenerateColumns="False" IsReadOnly="True">
+                                <DataGrid.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Перенести"/>
+                                        <MenuItem Header="Списать"/>
+                                    </ContextMenu>
+                                </DataGrid.ContextMenu>
                                 <DataGrid.Columns>
                                     <materialDesign:DataGridTextColumn Header="Инв/номер" Binding="{Binding Inventory_Number}" />
                                     <materialDesign:DataGridTextColumn Header="Название" Binding="{Binding Name_Cartinge}"/>
@@ -132,6 +168,12 @@
                     
                     <TabItem Header="Сетевое оборудование" Width="100" Height="30">
                         <DataGrid x:Name="NetworkDevices_Sklad_DataGrid" AutoGenerateColumns="False" IsReadOnly="True">
+                            <DataGrid.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Перенести"/>
+                                    <MenuItem Header="Списать"/>
+                                </ContextMenu>
+                            </DataGrid.ContextMenu>
                             <DataGrid.Columns>
                                 <materialDesign:DataGridTextColumn Header="Инв/номер" Binding="{Binding Inventory_Number}" />
                                 <materialDesign:DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
@@ -142,6 +184,12 @@
 
                     <TabItem Header="прочее" Width="100" Height="30">
                         <DataGrid x:Name="OtherDevices_Sklad_DataGrid" AutoGenerateColumns="False" IsReadOnly="True">
+                            <DataGrid.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Перенести"/>
+                                    <MenuItem Header="Списать"/>
+                                </ContextMenu>
+                            </DataGrid.ContextMenu>
                             <DataGrid.Columns>
                                 <materialDesign:DataGridTextColumn Header="Инв/номер" Binding="{Binding Inventory_Number}" />
                                 <materialDesign:DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
@@ -170,6 +218,12 @@
                     
                     <TabItem Header="Компьютеры" Width="100" Height="30">
                         <DataGrid x:Name="PC_TechObsluzhivanie_DataGrid" AutoGenerateColumns="False" IsReadOnly="True">
+                            <DataGrid.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Перенести"/>
+                                    <MenuItem Header="Списать"/>
+                                </ContextMenu>
+                            </DataGrid.ContextMenu>
                             <DataGrid.Columns>
                                 <materialDesign:DataGridTextColumn Header="Инвентарный номер" Binding="{Binding Inventory_Number}" />
                                 <materialDesign:DataGridTextColumn Header="Название" Binding="{Binding Name}" />
@@ -181,6 +235,12 @@
                     
                     <TabItem Header="Процессоры" Width="100" Height="30">
                         <DataGrid x:Name="CPU_TechObsluzhivanie_DataGrid" AutoGenerateColumns="False" IsReadOnly="True">
+                            <DataGrid.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Перенести"/>
+                                    <MenuItem Header="Списать"/>
+                                </ContextMenu>
+                            </DataGrid.ContextMenu>
                             <DataGrid.Columns>
                                 <materialDesign:DataGridTextColumn Header="Инв/номер" Binding="{Binding Inventory_Number_CPU}" />
                                 <materialDesign:DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
@@ -193,6 +253,12 @@
                     
                     <TabItem Header="ОЗУ" Width="100" Height="30">
                         <DataGrid x:Name="RAM_TechObsluzhivanie_DataGrid" AutoGenerateColumns="False" IsReadOnly="True">
+                            <DataGrid.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Перенести"/>
+                                    <MenuItem Header="Списать"/>
+                                </ContextMenu>
+                            </DataGrid.ContextMenu>
                             <DataGrid.Columns>
                                 <materialDesign:DataGridTextColumn Header="Инв/номер" Binding="{Binding Inventory_Number_RAM}" />
                                 <materialDesign:DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
@@ -206,6 +272,12 @@
                     
                     <TabItem Header="Периферия" Width="100" Height="30">
                         <DataGrid x:Name="Peripherals_TechObsluzhivanie_Datagrid" AutoGenerateColumns="False" IsReadOnly="True">
+                            <DataGrid.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Перенести"/>
+                                    <MenuItem Header="Списать"/>
+                                </ContextMenu>
+                            </DataGrid.ContextMenu>
                             <DataGrid.Columns>
                                 <materialDesign:DataGridTextColumn Header="Инв/номер" Binding="{Binding Inventory_Number}" />
                                 <materialDesign:DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
@@ -221,6 +293,12 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <DataGrid x:Name="Printers_TechObsluzhivanie_DataGrid" Grid.Column="0" AutoGenerateColumns="False" IsReadOnly="True">
+                                <DataGrid.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Перенести"/>
+                                        <MenuItem Header="Списать"/>
+                                    </ContextMenu>
+                                </DataGrid.ContextMenu>
                                 <DataGrid.Columns>
                                     <materialDesign:DataGridTextColumn Header="Инв/номер" Binding="{Binding Inventory_Number}" />
                                     <materialDesign:DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
@@ -228,6 +306,12 @@
                                 </DataGrid.Columns>
                             </DataGrid>
                             <DataGrid x:Name="Cartridge_TechObsluzhivanie_DataGrid" Grid.Column="1" AutoGenerateColumns="False" IsReadOnly="True">
+                                <DataGrid.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Перенести"/>
+                                        <MenuItem Header="Списать"/>
+                                    </ContextMenu>
+                                </DataGrid.ContextMenu>
                                 <DataGrid.Columns>
                                     <materialDesign:DataGridTextColumn Header="Инв/номер" Binding="{Binding Inventory_Number}" />
                                     <materialDesign:DataGridTextColumn Header="Название" Binding="{Binding Name_Cartinge}"/>
@@ -239,6 +323,12 @@
                     </TabItem>
                     <TabItem Header="Сетевое оборудование" Width="100" Height="30">
                         <DataGrid x:Name="NetworkDevice_TechObsluzhivanie_DataGrid" AutoGenerateColumns="False" IsReadOnly="True">
+                            <DataGrid.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Перенести"/>
+                                    <MenuItem Header="Списать"/>
+                                </ContextMenu>
+                            </DataGrid.ContextMenu>
                             <DataGrid.Columns>
                                 <materialDesign:DataGridTextColumn Header="Инв/номер" Binding="{Binding Inventory_Number}" />
                                 <materialDesign:DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
@@ -249,6 +339,12 @@
                     
                     <TabItem Header="прочее" Width="100" Height="30">
                         <DataGrid x:Name="OtherDevice_TechObsluzhivanie_DataGrid" AutoGenerateColumns="False" IsReadOnly="True">
+                            <DataGrid.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Перенести"/>
+                                    <MenuItem Header="Списать"/>
+                                </ContextMenu>
+                            </DataGrid.ContextMenu>
                             <DataGrid.Columns>
                                 <materialDesign:DataGridTextColumn Header="Инв/номер" Binding="{Binding Inventory_Number}" />
                                 <materialDesign:DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
