@@ -1054,5 +1054,87 @@ namespace ARM_Engineers
             var FilterOtherDevicesTechObsluzhivanie = from b in context.other_devices_view where b.Name_Room == "TechObsluzhivanie" select b;
             OtherDevice_TechObsluzhivanie_DataGrid.ItemsSource = FilterOtherDevicesTechObsluzhivanie.ToList();
         }
+
+        private void Grid_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.F5)
+            {
+                var FilterRoom = from b in context.room where b.Name_Room != "Spisanie" select b;
+
+                RoomList_PCSklad_ComboBox.ItemsSource = FilterRoom.ToList();
+                RoomList_CPUSklad_ComboBox.ItemsSource = FilterRoom.ToList();
+                RoomList_RAMSklad_ComboBox.ItemsSource = FilterRoom.ToList();
+                RoomList_PerpheralsSklad_ComboBox.ItemsSource = FilterRoom.ToList();
+                RoomList_PrintersSklad_ComboBox.ItemsSource = FilterRoom.ToList();
+                RoomList_CartridgeSklad_ComboBox.ItemsSource = FilterRoom.ToList();
+                RoomList_NetworkSklad_ComboBox.ItemsSource = FilterRoom.ToList();
+                RoomList_OtherSklad_ComboBox.ItemsSource = FilterRoom.ToList();
+
+                RoomList_PCTechObsluzhivanie_ComboBox.ItemsSource = FilterRoom.ToList();
+                RoomList_CPUTechObsluzhivanie_ComboBox.ItemsSource = FilterRoom.ToList();
+                RoomList_RAMTechObsluzhivanie_ComboBox.ItemsSource = FilterRoom.ToList();
+                RoomList_PeripherapsTechObsluzhivanie_ComboBox.ItemsSource = FilterRoom.ToList();
+                RoomList_PrintersTechObsluzhivanie_ComboBox.ItemsSource = FilterRoom.ToList();
+                RoomList_CartridgeTechObsluzhivanie_ComboBox.ItemsSource = FilterRoom.ToList();
+                RoomList_NetworkTechObsluzhivanie_ComboBox.ItemsSource = FilterRoom.ToList();
+                RoomList_OtherTechObsluzhivanie_ComboBox.ItemsSource = FilterRoom.ToList();
+
+                var FilterPCSklad = from b in context.pc_viewsearch where b.Name_Room == "Sklad" select b;
+                var FilterCPUSklad = from b in context.cpu_view where b.Name_Room == "Sklad" select b;
+                var FilterRAMSklad = from b in context.ram_view where b.Name_Room == "Sklad" select b;
+                var FilterPeripheralsSklad = from b in context.peripherals_view where b.Name_Room == "Sklad" select b;
+                var FilterPrintersSklad = from b in context.printer_view where b.Name_Room == "Sklad" select b;
+                var FilterCartridgeSklad = from b in context.cartridge_view where b.Name_Room == "Sklad" select b;
+                var FilterNetworkDevicesSklad = from b in context.network_devices_view where b.Name_Room == "Sklad" select b;
+                var FilterOtherDevicesSklad = from b in context.other_devices_view where b.Name_Room == "Sklad" select b;
+
+                PC_Sklad_DataGrid.ItemsSource = FilterPCSklad.ToList();
+                CPU_Sklad_Datagrid.ItemsSource = FilterCPUSklad.ToList();
+                RAM_Sklad_Datagrid.ItemsSource = FilterRAMSklad.ToList();
+                Peripherals_Sklad_DataGrid.ItemsSource = FilterPeripheralsSklad.ToList();
+                Printers_Sklad_DataGrid.ItemsSource = FilterPrintersSklad.ToList();
+                Cartridge_Sklad_DataGrid.ItemsSource = FilterCartridgeSklad.ToList();
+                NetworkDevices_Sklad_DataGrid.ItemsSource = FilterNetworkDevicesSklad.ToList();
+                OtherDevices_Sklad_DataGrid.ItemsSource = FilterOtherDevicesSklad.ToList();
+
+                Kabinety_DataGrid.ItemsSource = context.room_view.ToList();
+
+                var FilterPCTechObsluzhivanie = from b in context.pc_viewsearch where b.Name_Room == "TechObsluzhivanie" select b;
+                var FilterCPUTechObsluzhivanie = from b in context.cpu_view where b.Name_Room == "TechObsluzhivanie" select b;
+                var FilterRAMTechObsluzhivanie = from b in context.ram_view where b.Name_Room == "TechObsluzhivanie" select b;
+                var FilterPeripheralsTechObsluzhivanie = from b in context.peripherals_view where b.Name_Room == "TechObsluzhivanie" select b;
+                var FilterPrintersTechObsluzhivanie = from b in context.printer_view where b.Name_Room == "TechObsluzhivanie" select b;
+                var FilterCartridgeTechObsluzhivanie = from b in context.cartridge_view where b.Name_Room == "TechObsluzhivanie" select b;
+                var FilterNetworkDevicesTechObsluzhivanie = from b in context.network_devices_view where b.Name_Room == "TechObsluzhivanie" select b;
+                var FilterOtherDevicesTechObsluzhivanie = from b in context.other_devices_view where b.Name_Room == "TechObsluzhivanie" select b;
+                PC_TechObsluzhivanie_DataGrid.ItemsSource = FilterPCTechObsluzhivanie.ToList();
+                CPU_TechObsluzhivanie_DataGrid.ItemsSource = FilterCPUTechObsluzhivanie.ToList();
+                RAM_TechObsluzhivanie_DataGrid.ItemsSource = FilterRAMTechObsluzhivanie.ToList();
+                Peripherals_TechObsluzhivanie_Datagrid.ItemsSource = FilterPeripheralsTechObsluzhivanie.ToList();
+                Printers_TechObsluzhivanie_DataGrid.ItemsSource = FilterPrintersTechObsluzhivanie.ToList();
+                Cartridge_TechObsluzhivanie_DataGrid.ItemsSource = FilterCartridgeTechObsluzhivanie.ToList();
+                NetworkDevice_TechObsluzhivanie_DataGrid.ItemsSource = FilterNetworkDevicesTechObsluzhivanie.ToList();
+                OtherDevice_TechObsluzhivanie_DataGrid.ItemsSource = FilterOtherDevicesTechObsluzhivanie.ToList();
+
+                var FilterPCSpisanie = from b in context.pc_viewsearch where b.Name_Room == "Spisanie" select b;
+                var FilterCPUSpisanie = from b in context.cpu_view where b.Name_Room == "Spisanie" select b;
+                var FilterRAMSpisanie = from b in context.ram_view where b.Name_Room == "Spisanie" select b;
+                var FilterPeripheralsSpisanie = from b in context.peripherals_view where b.Name_Room == "Spisanie" select b;
+                var FilterPrintersSpisanie = from b in context.printer_view where b.Name_Room == "Spisanie" select b;
+                var FilterCartridgeSpisanie = from b in context.cartridge_view where b.Name_Room == "Spisanie" select b;
+                var FilterNetworkDevicesSpisanie = from b in context.network_devices_view where b.Name_Room == "Spisanie" select b;
+                var FilterOtherDevicesSpisanie = from b in context.other_devices_view where b.Name_Room == "Spisanie" select b;
+                PC_Spisanie_DataGrid.ItemsSource = FilterPCSpisanie.ToList();
+                CPU_Spisanie_DataGrid.ItemsSource = FilterCPUSpisanie.ToList();
+                RAM_Spisanie_DataGrid.ItemsSource = FilterRAMSpisanie.ToList();
+                Peripherals_Spisanie_Datagrid.ItemsSource = FilterPeripheralsSpisanie.ToList();
+                Printers_Spisanie_DataGrid.ItemsSource = FilterPrintersSpisanie.ToList();
+                Cartridge_Spisanie_DataGrid.ItemsSource = FilterCartridgeSpisanie.ToList();
+                NetworkDevice_Spisanie_DataGrid.ItemsSource = FilterNetworkDevicesSpisanie.ToList();
+                OtherDevice_Spisanie_DataGrid.ItemsSource = FilterOtherDevicesSpisanie.ToList();
+
+                MessageBox.Show("Данные успешно обновлены!");
+            }
+        }
     }
 }

@@ -35,7 +35,7 @@
 
 
 
-    <Grid Background="LightGray" >
+    <Grid Background="LightGray" KeyUp="Grid_KeyUp" >
         <Grid Height="60" MouseDown="Grid_MouseDown" VerticalAlignment="Top" Background="#1aa3ff" >
             <TextBlock x:Name="Heading" Text="АРМ инженера отдела ИТ" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22"/>
             <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
