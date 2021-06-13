@@ -166,6 +166,7 @@
     <Compile Include="Event_Log_Window.xaml.cs">
       <DependentUpon>Event_Log_Window.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MovingDeviceData.cs" />
     <Compile Include="network_devices.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>

@@ -65,8 +65,10 @@
                         <DataGrid x:Name="PC_Sklad_DataGrid" AutoGenerateColumns="False" IsReadOnly="True">
                             <DataGrid.ContextMenu>
                                 <ContextMenu>
-                                    <MenuItem Header="Перенести"/>
-                                    <MenuItem Header="Списать"/>
+                                    <MenuItem  Header="Перенести">
+                                        <ComboBox x:Name="RoomList_PCSklad_ComboBox" SelectionChanged="RoomList_PCSklad_ComboBox_SelectionChanged" IsEditable="False" ItemsSource="{Binding}"  SelectedValuePath="ID" SelectedValue="{Binding Path=ID}" DisplayMemberPath="Name_Room"/>
+                                    </MenuItem>                                                
+                                    <MenuItem x:Name="PC_Sklad_Spisanie" Header="Списать" Click="PC_Sklad_Spisanie_Click"/>
                                 </ContextMenu>
                             </DataGrid.ContextMenu>
                         <DataGrid.Columns>
@@ -82,8 +84,10 @@
                         <DataGrid x:Name="CPU_Sklad_Datagrid"  AutoGenerateColumns="False" IsReadOnly="True">
                             <DataGrid.ContextMenu>
                                 <ContextMenu>
-                                    <MenuItem Header="Перенести"/>
-                                    <MenuItem Header="Списать"/>
+                                    <MenuItem Header="Перенести">
+                                        <ComboBox x:Name="RoomList_CPUSklad_ComboBox" SelectionChanged="RoomList_CPUSklad_ComboBox_SelectionChanged" IsEditable="False" ItemsSource="{Binding}"  SelectedValuePath="ID" SelectedValue="{Binding Path=ID}" DisplayMemberPath="Name_Room"/>
+                                    </MenuItem>
+                                    <MenuItem x:Name="CPU_Sklad_Spisanie" Header="Списать" Click="CPU_Sklad_Spisanie_Click"/>
                                 </ContextMenu>
                             </DataGrid.ContextMenu>
                             <DataGrid.Columns>
@@ -100,8 +104,10 @@
                         <DataGrid x:Name="RAM_Sklad_Datagrid" AutoGenerateColumns="False" IsReadOnly="True">
                             <DataGrid.ContextMenu>
                                 <ContextMenu>
-                                    <MenuItem Header="Перенести"/>
-                                    <MenuItem Header="Списать"/>
+                                    <MenuItem Header="Перенести">
+                                        <ComboBox x:Name="RoomList_RAMSklad_ComboBox" SelectionChanged="RoomList_RAMSklad_ComboBox_SelectionChanged" IsEditable="False" ItemsSource="{Binding}"  SelectedValuePath="ID" SelectedValue="{Binding Path=ID}" DisplayMemberPath="Name_Room"/>
+                                    </MenuItem>
+                                    <MenuItem x:Name="RAM_Sklad_Spisanie" Header="Списать" Click="RAM_Sklad_Spisanie_Click"/>
                                 </ContextMenu>
                             </DataGrid.ContextMenu>
                             <DataGrid.Columns>
@@ -119,8 +125,10 @@
                         <DataGrid x:Name="Peripherals_Sklad_DataGrid" AutoGenerateColumns="False" IsReadOnly="True" >
                             <DataGrid.ContextMenu>
                                 <ContextMenu>
-                                    <MenuItem Header="Перенести"/>
-                                    <MenuItem Header="Списать"/>
+                                    <MenuItem Header="Перенести">
+                                        <ComboBox x:Name="RoomList_PerpheralsSklad_ComboBox" SelectionChanged="RoomList_PerpheralsSklad_ComboBox_SelectionChanged" IsEditable="False" ItemsSource="{Binding}"  SelectedValuePath="ID" SelectedValue="{Binding Path=ID}" DisplayMemberPath="Name_Room"/>
+                                    </MenuItem>
+                                    <MenuItem x:Name="Periphery_Sklad_Spisanie" Header="Списать" Click="Periphery_Sklad_Spisanie_Click"/>
                                 </ContextMenu>
                             </DataGrid.ContextMenu>
                             <DataGrid.Columns>
@@ -140,8 +148,10 @@
                             <DataGrid x:Name="Printers_Sklad_DataGrid" Grid.Column="0" AutoGenerateColumns="False" IsReadOnly="True">
                                 <DataGrid.ContextMenu>
                                     <ContextMenu>
-                                        <MenuItem Header="Перенести"/>
-                                        <MenuItem Header="Списать"/>
+                                        <MenuItem Header="Перенести">
+                                            <ComboBox x:Name="RoomList_PrintersSklad_ComboBox" SelectionChanged="RoomList_PrintersSklad_ComboBox_SelectionChanged" IsEditable="False" ItemsSource="{Binding}"  SelectedValuePath="ID" SelectedValue="{Binding Path=ID}" DisplayMemberPath="Name_Room"/>
+                                        </MenuItem>
+                                        <MenuItem x:Name="Printers_Sklad_Spisanie" Header="Списать" Click="Printers_Sklad_Spisanie_Click"/>
                                     </ContextMenu>
                                 </DataGrid.ContextMenu>
                                 <DataGrid.Columns>
@@ -153,8 +163,10 @@
                             <DataGrid x:Name="Cartridge_Sklad_DataGrid" Grid.Column="1" AutoGenerateColumns="False" IsReadOnly="True">
                                 <DataGrid.ContextMenu>
                                     <ContextMenu>
-                                        <MenuItem Header="Перенести"/>
-                                        <MenuItem Header="Списать"/>
+                                        <MenuItem Header="Перенести">
+                                            <ComboBox x:Name="RoomList_CartridgeSklad_ComboBox" SelectionChanged="RoomList_CartridgeSklad_ComboBox_SelectionChanged" IsEditable="False" ItemsSource="{Binding}"  SelectedValuePath="ID" SelectedValue="{Binding Path=ID}" DisplayMemberPath="Name_Room"/>
+                                        </MenuItem>
+                                        <MenuItem x:Name="Cartridge_Sklad_Spisanie" Header="Списать" Click="Cartridge_Sklad_Spisanie_Click"/>
                                     </ContextMenu>
                                 </DataGrid.ContextMenu>
                                 <DataGrid.Columns>
@@ -170,8 +182,10 @@
                         <DataGrid x:Name="NetworkDevices_Sklad_DataGrid" AutoGenerateColumns="False" IsReadOnly="True">
                             <DataGrid.ContextMenu>
                                 <ContextMenu>
-                                    <MenuItem Header="Перенести"/>
-                                    <MenuItem Header="Списать"/>
+                                    <MenuItem Header="Перенести">
+                                        <ComboBox x:Name="RoomList_NetworkSklad_ComboBox" SelectionChanged="RoomList_NetworkSklad_ComboBox_SelectionChanged" IsEditable="False" ItemsSource="{Binding}"  SelectedValuePath="ID" SelectedValue="{Binding Path=ID}" DisplayMemberPath="Name_Room"/>
+                                    </MenuItem>
+                                    <MenuItem x:Name="Network_Sklad_Spisanie" Header="Списать" Click="Network_Sklad_Spisanie_Click"/>
                                 </ContextMenu>
                             </DataGrid.ContextMenu>
                             <DataGrid.Columns>
@@ -182,12 +196,14 @@
                         </DataGrid>
                     </TabItem>
 
-                    <TabItem Header="прочее" Width="100" Height="30">
+                    <TabItem Header="Прочее" Width="100" Height="30">
                         <DataGrid x:Name="OtherDevices_Sklad_DataGrid" AutoGenerateColumns="False" IsReadOnly="True">
                             <DataGrid.ContextMenu>
                                 <ContextMenu>
-                                    <MenuItem Header="Перенести"/>
-                                    <MenuItem Header="Списать"/>
+                                    <MenuItem Header="Перенести">
+                                        <ComboBox x:Name="RoomList_OtherSklad_ComboBox" SelectionChanged="RoomList_OtherSklad_ComboBox_SelectionChanged" IsEditable="False" ItemsSource="{Binding}"  SelectedValuePath="ID" SelectedValue="{Binding Path=ID}" DisplayMemberPath="Name_Room"/>
+                                    </MenuItem>
+                                    <MenuItem x:Name="Other_Sklad_Spisanie" Header="Списать" Click="Other_Sklad_Spisanie_Click"/>
                                 </ContextMenu>
                             </DataGrid.ContextMenu>
                             <DataGrid.Columns>
@@ -209,9 +225,9 @@
                         <materialDesign:DataGridTextColumn Header="Ответственный" Binding="{Binding Surname}"/>
                         <materialDesign:DataGridTextColumn Header="Примечания" Binding="{Binding Description}"/>
                     </DataGrid.Columns>
-                </DataGrid>
-                
+                </DataGrid>                
             </GroupBox>
+            
             <GroupBox x:Name="TechObsluzhivanie_GroupBox">
                 
                 <TabControl x:Name="TechObsluzhivanie_TabControl">
@@ -220,8 +236,10 @@
                         <DataGrid x:Name="PC_TechObsluzhivanie_DataGrid" AutoGenerateColumns="False" IsReadOnly="True">
                             <DataGrid.ContextMenu>
                                 <ContextMenu>
-                                    <MenuItem Header="Перенести"/>
-                                    <MenuItem Header="Списать"/>
+                                    <MenuItem  Header="Перенести">
+                                        <ComboBox x:Name="RoomList_PCTechObsluzhivanie_ComboBox" SelectionChanged="RoomList_PCTechObsluzhivanie_ComboBox_SelectionChanged" IsEditable="False" ItemsSource="{Binding}"  SelectedValuePath="ID" SelectedValue="{Binding Path=ID}" DisplayMemberPath="Name_Room"/>
+                                    </MenuItem>
+                                    <MenuItem x:Name="PC_TechObsluzhivanie_Spisanie" Header="Списать" Click="PC_TechObsluzhivanie_Spisanie_Click"/>
                                 </ContextMenu>
                             </DataGrid.ContextMenu>
                             <DataGrid.Columns>
@@ -237,8 +255,10 @@
                         <DataGrid x:Name="CPU_TechObsluzhivanie_DataGrid" AutoGenerateColumns="False" IsReadOnly="True">
                             <DataGrid.ContextMenu>
                                 <ContextMenu>
-                                    <MenuItem Header="Перенести"/>
-                                    <MenuItem Header="Списать"/>
+                                    <MenuItem  Header="Перенести">
+                                        <ComboBox x:Name="RoomList_CPUTechObsluzhivanie_ComboBox" SelectionChanged="RoomList_CPUTechObsluzhivanie_ComboBox_SelectionChanged" IsEditable="False" ItemsSource="{Binding}"  SelectedValuePath="ID" SelectedValue="{Binding Path=ID}" DisplayMemberPath="Name_Room"/>
+                                    </MenuItem>
+                                    <MenuItem x:Name="CPU_TechObsluzhivanie_Spisanie" Header="Списать" Click="CPU_TechObsluzhivanie_Spisanie_Click"/>
                                 </ContextMenu>
                             </DataGrid.ContextMenu>
                             <DataGrid.Columns>
@@ -255,8 +275,10 @@
                         <DataGrid x:Name="RAM_TechObsluzhivanie_DataGrid" AutoGenerateColumns="False" IsReadOnly="True">
                             <DataGrid.ContextMenu>
                                 <ContextMenu>
-                                    <MenuItem Header="Перенести"/>
-                                    <MenuItem Header="Списать"/>
+                                    <MenuItem  Header="Перенести">
+                                        <ComboBox x:Name="RoomList_RAMTechObsluzhivanie_ComboBox" SelectionChanged="RoomList_RAMTechObsluzhivanie_ComboBox_SelectionChanged" IsEditable="False" ItemsSource="{Binding}"  SelectedValuePath="ID" SelectedValue="{Binding Path=ID}" DisplayMemberPath="Name_Room"/>
+                                    </MenuItem>
+                                    <MenuItem x:Name="RAM_TechObsluzhivanie_Spisanie" Header="Списать" Click="RAM_TechObsluzhivanie_Spisanie_Click"/>
                                 </ContextMenu>
                             </DataGrid.ContextMenu>
                             <DataGrid.Columns>
@@ -274,8 +296,10 @@
                         <DataGrid x:Name="Peripherals_TechObsluzhivanie_Datagrid" AutoGenerateColumns="False" IsReadOnly="True">
                             <DataGrid.ContextMenu>
                                 <ContextMenu>
-                                    <MenuItem Header="Перенести"/>
-                                    <MenuItem Header="Списать"/>
+                                    <MenuItem  Header="Перенести">
+                                        <ComboBox x:Name="RoomList_PeripherapsTechObsluzhivanie_ComboBox" SelectionChanged="RoomList_PeripherapsTechObsluzhivanie_ComboBox_SelectionChanged" IsEditable="False" ItemsSource="{Binding}"  SelectedValuePath="ID" SelectedValue="{Binding Path=ID}" DisplayMemberPath="Name_Room"/>
+                                    </MenuItem>
+                                    <MenuItem x:Name="Peripferals_TechObsluzhivanie_Spisanie" Header="Списать" Click="Peripferals_TechObsluzhivanie_Spisanie_Click"/>
                                 </ContextMenu>
                             </DataGrid.ContextMenu>
                             <DataGrid.Columns>
@@ -295,8 +319,10 @@
                             <DataGrid x:Name="Printers_TechObsluzhivanie_DataGrid" Grid.Column="0" AutoGenerateColumns="False" IsReadOnly="True">
                                 <DataGrid.ContextMenu>
                                     <ContextMenu>
-                                        <MenuItem Header="Перенести"/>
-                                        <MenuItem Header="Списать"/>
+                                        <MenuItem  Header="Перенести">
+                                            <ComboBox x:Name="RoomList_PrintersTechObsluzhivanie_ComboBox" SelectionChanged="RoomList_PrintersTechObsluzhivanie_ComboBox_SelectionChanged" IsEditable="False" ItemsSource="{Binding}"  SelectedValuePath="ID" SelectedValue="{Binding Path=ID}" DisplayMemberPath="Name_Room"/>
+                                        </MenuItem>
+                                        <MenuItem x:Name="Printers_TechObsluzhivanie_Spisanie" Header="Списать" Click="Printers_TechObsluzhivanie_Spisanie_Click"/>
                                     </ContextMenu>
                                 </DataGrid.ContextMenu>
                                 <DataGrid.Columns>
@@ -308,8 +334,10 @@
                             <DataGrid x:Name="Cartridge_TechObsluzhivanie_DataGrid" Grid.Column="1" AutoGenerateColumns="False" IsReadOnly="True">
                                 <DataGrid.ContextMenu>
                                     <ContextMenu>
-                                        <MenuItem Header="Перенести"/>
-                                        <MenuItem Header="Списать"/>
+                                        <MenuItem  Header="Перенести">
+                                            <ComboBox x:Name="RoomList_CartridgeTechObsluzhivanie_ComboBox" SelectionChanged="RoomList_CartridgeTechObsluzhivanie_ComboBox_SelectionChanged" IsEditable="False" ItemsSource="{Binding}"  SelectedValuePath="ID" SelectedValue="{Binding Path=ID}" DisplayMemberPath="Name_Room"/>
+                                        </MenuItem>
+                                        <MenuItem x:Name="Cartridge_TechObsluzhivanie_Spisanie" Header="Списать" Click="Cartridge_TechObsluzhivanie_Spisanie_Click"/>
                                     </ContextMenu>
                                 </DataGrid.ContextMenu>
                                 <DataGrid.Columns>
@@ -325,8 +353,10 @@
                         <DataGrid x:Name="NetworkDevice_TechObsluzhivanie_DataGrid" AutoGenerateColumns="False" IsReadOnly="True">
                             <DataGrid.ContextMenu>
                                 <ContextMenu>
-                                    <MenuItem Header="Перенести"/>
-                                    <MenuItem Header="Списать"/>
+                                    <MenuItem  Header="Перенести">
+                                        <ComboBox x:Name="RoomList_NetworkTechObsluzhivanie_ComboBox" SelectionChanged="RoomList_NetworkTechObsluzhivanie_ComboBox_SelectionChanged" IsEditable="False" ItemsSource="{Binding}"  SelectedValuePath="ID" SelectedValue="{Binding Path=ID}" DisplayMemberPath="Name_Room"/>
+                                    </MenuItem>
+                                    <MenuItem x:Name="Network_TechObsluzhivanie_Spisanie" Header="Списать" Click="Network_TechObsluzhivanie_Spisanie_Click"/>
                                 </ContextMenu>
                             </DataGrid.ContextMenu>
                             <DataGrid.Columns>
@@ -341,8 +371,10 @@
                         <DataGrid x:Name="OtherDevice_TechObsluzhivanie_DataGrid" AutoGenerateColumns="False" IsReadOnly="True">
                             <DataGrid.ContextMenu>
                                 <ContextMenu>
-                                    <MenuItem Header="Перенести"/>
-                                    <MenuItem Header="Списать"/>
+                                    <MenuItem  Header="Перенести">
+                                        <ComboBox x:Name="RoomList_OtherTechObsluzhivanie_ComboBox" SelectionChanged="RoomList_OtherTechObsluzhivanie_ComboBox_SelectionChanged" IsEditable="False" ItemsSource="{Binding}"  SelectedValuePath="ID" SelectedValue="{Binding Path=ID}" DisplayMemberPath="Name_Room"/>
+                                    </MenuItem>
+                                    <MenuItem x:Name="Other_TechObsluzhivanie_Spisanie" Header="Списать" Click="Other_TechObsluzhivanie_Spisanie_Click"/>
                                 </ContextMenu>
                             </DataGrid.ContextMenu>
                             <DataGrid.Columns>
