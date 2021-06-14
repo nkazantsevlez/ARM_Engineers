@@ -23,6 +23,13 @@ namespace ARM_Engineers
         public Room_Window()
         {
             InitializeComponent();
+
+            var FilterRoom = from b in context.room where b.Name_Room != "Spisanie" select b;
+            RoomList_PCRoom_ComboBox.ItemsSource = FilterRoom.ToList();
+            RoomList_PeripheralsRoom_ComboBox.ItemsSource = FilterRoom.ToList();
+            RoomList_PrintersRoom_ComboBox.ItemsSource = FilterRoom.ToList();
+            RoomList_NetworkRoom_ComboBox.ItemsSource = FilterRoom.ToList();
+            RoomList_OtherRoom_ComboBox.ItemsSource = FilterRoom.ToList();
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
