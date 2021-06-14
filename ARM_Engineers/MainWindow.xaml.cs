@@ -1157,5 +1157,12 @@ namespace ARM_Engineers
                 room_Window.Show();
             }
         }
+
+        private void Report_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Report_Window report_Window = new Report_Window();
+            report_Window.Show();
+
+        }
     }
 }

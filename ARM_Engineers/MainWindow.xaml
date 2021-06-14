@@ -47,7 +47,7 @@
                         <Button x:Name="Employee_Button" Click="Employee_Button_Click" Content="Сотрудники"/>
                         <Separator/>
                         <Button x:Name="Event_Log_Button" Click="Event_Log_Button_Click" Content="Журнал событий"/>
-                        <Button Content="Отчетность"/>
+                        <Button x:Name="Report_Button" Content="Отчетность" Click="Report_Button_Click" />
                         <Separator/>
                         <Button  x:Name="FullScreenButton" Content="На весь экран" Click="FullScreenButton_Click"/>
                         <Button x:Name="PopUpButton_Quit" Content="Выход" Click="PopUpButton_Quit_Click"/>
