@@ -1,0 +1,114 @@
+﻿<Window x:Class="ARM_Engineers.Room_Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:ARM_Engineers"
+        mc:Ignorable="d"
+        Title="Room_Window" Height="500" Width="700" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Foreground="White">
+    <Grid>
+        <Grid MouseDown="Grid_MouseDown" Height="40" VerticalAlignment="Top" Background="#1aa3ff">
+            <TextBlock x:Name="Heading" Text="Кабинет" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22"/>
+            <Button x:Name="Close_Button" Content="X" Margin="1" FontSize="20" HorizontalAlignment="Right" Background="{x:Null}"  BorderBrush="{x:Null}" Click="Close_Button_Click"/>
+        </Grid>
+        <Grid Margin="0 40 0 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TabControl Grid.Row="1">
+                <TabItem Header="Компьютеры">
+                    <DataGrid x:Name="PC_Room_DataGrid" AutoGenerateColumns="False" IsReadOnly="True">
+                        <DataGrid.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem  Header="Перенести">
+                                    <ComboBox x:Name="RoomList_PCRoom_ComboBox" SelectionChanged="" IsEditable="False" ItemsSource="{Binding}"  SelectedValuePath="ID" SelectedValue="{Binding Path=ID}" DisplayMemberPath="Name_Room"/>
+                                </MenuItem>
+                                <MenuItem x:Name="PC_Sklad_Spisanie" Header="Списать" Click=""/>
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>
+                        <DataGrid.Columns>
+                            <materialDesign:DataGridTextColumn Header="Инвентарный номер" Binding="{Binding Inventory_Number}" />
+                            <materialDesign:DataGridTextColumn Header="Название" Binding="{Binding Name}" />
+                            <materialDesign:DataGridTextColumn Header="Ответственный" Binding="{Binding Surname}"/>
+                            <materialDesign:DataGridTextColumn Header="Примечания" Binding="{Binding Description}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>                    
+                </TabItem>
+                
+                <TabItem Header="Периферия">
+                    <DataGrid x:Name="Peripherals_Room_DataGrid" AutoGenerateColumns="False" IsReadOnly="True" >
+                        <DataGrid.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Перенести">
+                                    <ComboBox x:Name="RoomList_PeripheralsRoom_ComboBox" SelectionChanged="" IsEditable="False" ItemsSource="{Binding}"  SelectedValuePath="ID" SelectedValue="{Binding Path=ID}" DisplayMemberPath="Name_Room"/>
+                                </MenuItem>
+                                <MenuItem x:Name="Periphery_Room_Spisanie" Header="Списать" Click=""/>
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>
+                        <DataGrid.Columns>
+                            <materialDesign:DataGridTextColumn Header="Инв/номер" Binding="{Binding Inventory_Number}" />
+                            <materialDesign:DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
+                            <materialDesign:DataGridTextColumn Header="Примечания" Binding="{Binding Description}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                
+                <TabItem Header="Принтеры">
+                    <DataGrid x:Name="Printers_Room_DataGrid"  AutoGenerateColumns="False" IsReadOnly="True">
+                        <DataGrid.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Перенести">
+                                    <ComboBox x:Name="RoomList_PrintersRoom_ComboBox" SelectionChanged="" IsEditable="False" ItemsSource="{Binding}"  SelectedValuePath="ID" SelectedValue="{Binding Path=ID}" DisplayMemberPath="Name_Room"/>
+                                </MenuItem>
+                                <MenuItem x:Name="Printers_Room_Spisanie" Header="Списать" Click=""/>
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>
+                        <DataGrid.Columns>
+                            <materialDesign:DataGridTextColumn Header="Инв/номер" Binding="{Binding Inventory_Number}" />
+                            <materialDesign:DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
+                            <materialDesign:DataGridTextColumn Header="Примечания" Binding="{Binding Description}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                
+                <TabItem Header="Сетевое оборудование">
+                    <DataGrid x:Name="NetworkDevices_Room_DataGrid" AutoGenerateColumns="False" IsReadOnly="True">
+                        <DataGrid.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Перенести">
+                                    <ComboBox x:Name="RoomList_NetworkRoom_ComboBox" SelectionChanged="" IsEditable="False" ItemsSource="{Binding}"  SelectedValuePath="ID" SelectedValue="{Binding Path=ID}" DisplayMemberPath="Name_Room"/>
+                                </MenuItem>
+                                <MenuItem x:Name="Network_Room_Spisanie" Header="Списать" Click=""/>
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>
+                        <DataGrid.Columns>
+                            <materialDesign:DataGridTextColumn Header="Инв/номер" Binding="{Binding Inventory_Number}" />
+                            <materialDesign:DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
+                            <materialDesign:DataGridTextColumn Header="Примечания" Binding="{Binding Description}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                
+                <TabItem Header="Прочее">
+                    <DataGrid x:Name="OtherDevices_Room_DataGrid" AutoGenerateColumns="False" IsReadOnly="True">
+                        <DataGrid.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Перенести">
+                                    <ComboBox x:Name="RoomList_OtherRoom_ComboBox" SelectionChanged="" IsEditable="False" ItemsSource="{Binding}"  SelectedValuePath="ID" SelectedValue="{Binding Path=ID}" DisplayMemberPath="Name_Room"/>
+                                </MenuItem>
+                                <MenuItem x:Name="Other_Room_Spisanie" Header="Списать" Click="Other_Sklad_Spisanie_Click"/>
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>
+                        <DataGrid.Columns>
+                            <materialDesign:DataGridTextColumn Header="Инв/номер" Binding="{Binding Inventory_Number}" />
+                            <materialDesign:DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
+                            <materialDesign:DataGridTextColumn Header="Примечания" Binding="{Binding Description}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>               
+            </TabControl>
+        </Grid>
+    </Grid>
+</Window>
