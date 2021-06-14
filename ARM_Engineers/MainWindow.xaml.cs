@@ -1136,5 +1136,26 @@ namespace ARM_Engineers
                 MessageBox.Show("Данные успешно обновлены!");
             }
         }
+
+        private void Kabinety_DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if(Kabinety_DataGrid != null && Kabinety_DataGrid.SelectedItems != null && Kabinety_DataGrid.SelectedItems.Count==1)
+            {
+                var cellInfoNumber = Kabinety_DataGrid.SelectedCells[0];
+                var contentNumber = (cellInfoNumber.Column.GetCellContent(cellInfoNumber.Item) as TextBlock).Text;
+                RoomData.Number_Room = Convert.ToInt32(contentNumber);
+
+                var cellInfoName = Kabinety_DataGrid.SelectedCells[1];
+                var contentName = (cellInfoName.Column.GetCellContent(cellInfoName.Item) as TextBlock).Text;
+                RoomData.Name_Room = Convert.ToString(contentName);
+
+                var cellInfoEmployee = Kabinety_DataGrid.SelectedCells[2];
+                var contentEmployee = (cellInfoEmployee.Column.GetCellContent(cellInfoEmployee.Item) as TextBlock).Text;
+                RoomData.Surname_Employee = Convert.ToString(contentEmployee);
+
+                Room_Window room_Window = new Room_Window();
+                room_Window.Show();
+            }
+        }
     }
 }
