@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARM_Engineers"
         mc:Ignorable="d"
-        Title="Report_Window" Height="500" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Foreground="White">
+        Title="Report_Window" Height="200" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Foreground="White">
     <Grid>
         <Grid MouseDown="Grid_MouseDown"  Height="40" VerticalAlignment="Top" Background="#1aa3ff">
             <TextBlock x:Name="Heading" Text="Отчетность" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22"/>
@@ -16,11 +16,14 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <ComboBox Name="Selected_Report_Combobox" Grid.Row="0" SelectionChanged="Selected_Report_Combobox_SelectionChanged">                
+            <ComboBox Name="Selected_Report_Combobox" Grid.Row="0">                
                     <TextBlock Text="Все устройства организации"/>
+                    <TextBlock Text="Все устройства находящиеся в техобслуживании"/>
+                    <TextBlock Text="Все списанные устройства"/>
                     <TextBlock Text="Все события"/>                
             </ComboBox>
-            <Viewer:CrystalReportsViewer x:Name="View_ReportViewer" Grid.Row="1" Margin="0 0 0 0" />
+            <Button x:Name="GenerateReport_Button" Grid.Row="1" Content="Сформировать отчет"  Background="#80ccff" Foreground="White" Width="200" Height="30" BorderThickness="0" Click="GenerateReport_Button_Click"/>
+
         </Grid>
 
     </Grid>

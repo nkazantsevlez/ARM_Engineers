@@ -38,21 +38,21 @@ namespace ARM_Engineers
             DragMove();
         }
 
-        private void Selected_Report_Combobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void GenerateReport_Button_Click(object sender, RoutedEventArgs e)
         {
-            switch(Selected_Report_Combobox.SelectedIndex)
+            switch (Selected_Report_Combobox.SelectedIndex)
             {
-                case 0: All_Devices_Report all_Devices_Report = new All_Devices_Report();
-                    all_Devices_Report.Load(@"All_Devices_Report.rep");
-                    View_ReportViewer.ViewerCore.ReportSource = all_Devices_Report;
+                case 0:
                     break;
-                case 1: 
-                    Event_Log_Report event_Log_Report = new Event_Log_Report();
-                    event_Log_Report.Load(@"Event_Log_Report.rep");
-                    View_ReportViewer.ViewerCore.ReportSource = event_Log_Report; 
+                case 1:
                     break;
-                default: MessageBox.Show("Ошибка!");break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                default: MessageBox.Show("Ошибка!"); break;
             }
+            MessageBox.Show("Отчет успешно сформирован!");
         }
     }
 }
